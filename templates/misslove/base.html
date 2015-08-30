@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base.html</title>
+    <link href="{% static 'misslove/css/base_page.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<h1 id="title">MissLove</h1>
+<p>Whisper you love stories here</p>
+{% block content %}
+{% endblock %}
+</body>
+</html>

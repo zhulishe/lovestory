@@ -3,32 +3,39 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 # Create your models here.
 
 
 class Article(models.Model):
 	article_type = (
-		(1,u'失恋'),
-		(2,u'暗恋'),
-		(3,u'异地恋'),
-		(4,u'爱恋'),
+		(1, u'失恋'),
+		(2, u'暗恋'),
+		(3, u'异地恋'),
+		(4, u'爱恋'),
 	)
 	author = models.ForeignKey(settings.AUTH_USER_MODEL)
 	title = models.CharField(max_length=200)
 	text = models.TextField()
 	choose_type = models.IntegerField(choices=article_type)
-	created_time = models.TimeField()
+	created_time = models.TimeField(default=timezone.now, editable=False)
 	# article valid or invalid
-	status = models.IntegerField()
-	image = models.ImageField()
+	status = models.IntegerField(default=1)
+	image = models.ImageField(u'文章图片',upload_to='images/articleimg', blank=True)
 
+	def __unicode__(self):
+		return self.title
 
 class Comment(models.Model):
 	author = models.ForeignKey(settings.AUTH_USER_MODEL)
+	article = models.ForeignKey(Article)
 	content = models.TextField()
-	comment_time = models.TimeField()
+	comment_time = models.TimeField(default=timezone.now,editable=False)
 	# comment is valid or invalid
-	status = models.IntegerField()
+	status = models.IntegerField(default=1)
+
+	def __unicode__(self):
+		return self.article + self.author
 
 
 class NewUser(AbstractUser):
