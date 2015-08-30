@@ -109,3 +109,7 @@ STATIC_URL = '/static/'
 
 # New User Model
 AUTH_USER_MODEL = 'misslove.NewUser'
+
+# Media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
