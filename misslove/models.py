@@ -8,10 +8,10 @@ from django.contrib.auth.models import AbstractUser
 
 class Article(models.Model):
 	article_type = (
-		(1,u'失恋'),
-		(2,u'暗恋'),
-		(3,u'异地恋'),
-		(4,u'爱恋'),
+		(1, u'失恋'),
+		(2, u'暗恋'),
+		(3, u'异地恋'),
+		(4, u'爱恋'),
 	)
 	author = models.ForeignKey(settings.AUTH_USER_MODEL)
 	title = models.CharField(max_length=200)
