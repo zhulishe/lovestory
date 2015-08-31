@@ -42,6 +42,7 @@ def article_catalog(request, article_type):
 def article_detail(request, article_id):
 	template_name = 'misslove/article_detail.html'
 	article = get_object_or_404(Article, id=article_id)
+	comments = article.comment_set.filter(status=1).order_by('comment_time')
 	return render_to_response(template_name,
-							  {'article': article},
+							  {'article': article, 'comments':comments},
 							  context_instance=RequestContext(request))

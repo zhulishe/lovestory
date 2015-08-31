@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from misslove.models import NewUser, Article
+from misslove.models import NewUser, Article, Comment
 from django.contrib.auth import get_user_model
 
 
@@ -25,6 +25,12 @@ class InfoEdit(forms.ModelForm):
 	class Meta():
 		model = get_user_model()
 		fields = ('username','email', 'gender', 'whats_up', 'avatar', )
+
+
+class CommentAdd(forms.ModelForm):
+	class Meta():
+		model = Comment
+		fields = ('content', )
 
 
 
