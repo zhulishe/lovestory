@@ -25,7 +25,7 @@
         <ul>
         {% for user_article in user_articles %}
             <li>
-            <a href="/articles/detail/{{ user_article.id }}">{{ user_article }}</a>&nbsp;&nbsp;<a href="#">删除</a>
+            <a href="/articles/detail/{{ user_article.id }}">{{ user_article }}</a>&nbsp;&nbsp;<a href="/articles/delete/{{ user_article.id }}">删除</a>
             </li>
         {% endfor %}
         </ul>
