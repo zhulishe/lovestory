@@ -20,7 +20,7 @@
         <a href="{% url 'logout' %}">退出</a>
     {% else %}
         <a href="{% url 'login' %}">登录</a>
-        <a href="#">注册</a>
+        <a href="{% url 'signup' %}">注册</a>
     {% endif %}
 </div>
 

@@ -1,11 +1,50 @@
 {% extends 'misslove/base.html' %}
 
-{% block title %}个人信息{% endblock %}
+{% block title %}{{ current_user.username }}的信息{% endblock %}
 
 {% block content %}
+
+    <div>
+    {% ifequal current_user.id user.id %}
+        <a href="/account/edit/{{ current_user.id }}">编辑</a>
+    {% endifequal %}
+    </div>
+
     <div>
     <p>姓名: {{ current_user.username }}</p>
+    <p>性别: {{ current_user.get_gender_display }}</p>
     <p>邮箱: {{ current_user.email }}</p>
     <p>个性签名: {{ current_user.whats_up }}</p>
     </div>
+
+    <div>
+    <p>已发表文章（共{{ user_articles | length }}篇）</p>
+    {% ifequal user_articles|length 0 %}
+        <P>对不起，你还没有发表过任何文章哦</P>
+    {% else %}
+        <ul>
+        {% for user_article in user_articles %}
+            <li>
+            <a href="#">{{ user_article }}</a>&nbsp;&nbsp;<a href="#">删除</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endifequal %}
+    </div>
+
+    <div>
+    <p>已发表评论（共{{ user_comments|length }}条）</p>
+    {% ifequal user_comments|length 0 %}
+        <P>对不起，你还没有发表过任何评论哦</P>
+    {% else %}
+        <ul>
+        {% for user_comment in user_comments %}
+            <li>
+               <a href="#">{{ user_comment.article.title }}</a>&nbsp;&nbsp;<a href="#">删除</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endifequal %}
+    </div>
+
 {% endblock %}

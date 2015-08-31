@@ -1,0 +1,12 @@
+{% extends 'misslove/base.html' %}
+
+{% block title %}编辑个人资料{% endblock %}
+
+{% block content %}
+    <h2>编辑个人信息</h2>
+    <form enctype="multipart/form-data" method="POST" >
+		{% csrf_token %}
+		{{ info_form.as_p }}
+		<button type="submit" >Save</button>
+	</form>
+{% endblock %}
