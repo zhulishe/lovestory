@@ -30,8 +30,8 @@ urlpatterns = [
     url(r'^account/edit/(?P<user_id>\d+)/$', 'misslove.views.users.info_edit', name="info_edit"),
 	
 	url(r'^articles/new$','misslove.views.articles.new_article', name="new_article"),
-    url(r'^articles/crossing$', 'misslove.views.articles.article_crossing', name="article_crossing"),
-    url(r'^articles/crush$', 'misslove.views.articles.article_crush', name="article_crush"),
+    url(r'^articles/catalog/(?P<article_type>\d+)/$', 'misslove.views.articles.article_catalog', name="article_catalog"),
+	url(r'^articles/detail/(?P<article_id>\d+)/$', 'misslove.views.articles.article_detail', name="article_detail"),
 ]
 
 if settings.DEBUG:

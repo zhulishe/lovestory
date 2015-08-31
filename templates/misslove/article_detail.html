@@ -1,0 +1,24 @@
+{% extends "misslove/base.html" %}
+
+{% block title %}{{ article }}{% endblock %}
+
+{% block content %}
+    <h1>{{ article }}</h1>
+
+    <div>
+        <div>
+            <a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a>
+            <img src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
+        </div>
+
+        <div>
+            <p>{{ article.title }}</p>
+            <p>{{ article.created_time }}</p>
+            <p>{{ article.text }}</p>
+            {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article }}" title="{{ article }}"/>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

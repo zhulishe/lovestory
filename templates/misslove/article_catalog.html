@@ -1,0 +1,19 @@
+{% extends "misslove/base.html" %}
+
+{% block title %}{{ article_type }}{% endblock %}
+
+{% block content %}
+    <h1>{{ article_type }}</h1>
+
+    {% ifequal articles|length 0%}
+        <p>{{ article_type }}版区现在还没有任何人发帖哦，赶快去发布吧</p>
+    {% else %}
+        {% for article in articles %}
+            <h1>{{article.title  }}</h1>
+            <p>{{ article.author }},{{ article.created_time }}</p>
+            <p>{{ article.text | truncatechars:40 }}</p>
+            <a href="/articles/detail/{{ article.id }}">Read More...</a>
+        {% endfor %}
+    {% endifequal %}
+
+{% endblock %}

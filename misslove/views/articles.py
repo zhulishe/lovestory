@@ -30,13 +30,18 @@ def new_article(request):
 	return render(request,template_name, {'form':form})
 
 
-def article_crossing(request):
-	articles = Article.objects.filter(choose_type = 1)#.order_by('created_time')
-	template_name = 'misslove/crossing.html'
-	return render(request, template_name,{'articles':articles,'article_type':article_type})
+def article_catalog(request, article_type):
+	template_name = 'misslove/article_catalog.html'
+	articles = Article.objects.filter(status=1).filter(choose_type=article_type).order_by('created_time')
+	article_type = Article.article_type[int(article_type)-1][1]
+	return render_to_response(template_name,
+							  {'articles': articles, 'article_type': article_type},
+							  context_instance=RequestContext(request))
 
 
-def article_crush(request):
-	articles = Article.objects.filter(choose_type = 2)#.order_by('created_time')
-	template_name = 'misslove/crush.html'
-	return render(request, template_name,{'articles':articles})
+def article_detail(request, article_id):
+	template_name = 'misslove/article_detail.html'
+	article = get_object_or_404(Article, id=article_id)
+	return render_to_response(template_name,
+							  {'article': article},
+							  context_instance=RequestContext(request))
