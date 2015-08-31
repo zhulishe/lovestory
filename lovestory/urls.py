@@ -21,7 +21,11 @@ from misslove.views import articles, comments, users
 
 urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
+
     url(r'^$', articles.homepage, name='homepage'),
+	url(r'^accounts/login/$', 'django.contrib.auth.views.login', name="login"),
+	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="logout"),
+	url(r'^accounts/info/(?P<user_id>\d+)/$', 'misslove.views.users.user_info', name="user_info"),
 ]
 
 if settings.DEBUG:

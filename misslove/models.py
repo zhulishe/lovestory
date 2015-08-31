@@ -27,15 +27,15 @@ class Article(models.Model):
 		return self.title
 
 class Comment(models.Model):
-	author = models.ForeignKey(settings.AUTH_USER_MODEL)
 	article = models.ForeignKey(Article)
+	author = models.ForeignKey(settings.AUTH_USER_MODEL)
 	content = models.TextField()
 	comment_time = models.TimeField(default=timezone.now,editable=False)
 	# comment is valid or invalid
 	status = models.IntegerField(default=1)
 
 	def __unicode__(self):
-		return self.article + self.author
+		return self.article.title + '_' + self.author.username
 
 
 class NewUser(AbstractUser):
