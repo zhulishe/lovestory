@@ -1,22 +1,39 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>base.html</title>
+
     <link href="{% static 'misslove/css/base_page.css' %}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" herf="{% static 'misslove/img/logo.png' %}" />
+
+    <title>{% block title %}{% endblock %} | 失恋博物馆</title>
 </head>
 
 <body>
+ <img id="logo" src="{% static 'misslove/img/logo.png' %}"/>
+ <h1 id="title"><a href="{% url 'homepage' %}">MissLove</a></h1>
+ <p class="index">Whisper you love stories here</p>
+
+
+
+
 <div>
-    <p>
-    <img src="static/misslove/img/logo.PNG" width="120" height="120" align="left"/>
-    <h1 id="title">MissLove</h1>
-    <p class="index">Whisper you love stories here</p>
-    </p>
+    {% if user.is_authenticated %}
+        <img src="{{ user.get_avatar }}" alt="{{ user.username }}" title="{{ user.username }}"/>
+        <a href="/accounts/info/{{ user.id }}" >{{ user.username }}</a>
+        <a href="{% url 'logout' %}">退出</a>
+    {% else %}
+        <a href="{% url 'login' %}">登录</a>
+        <a href="#">注册</a>
+    {% endif %}
 </div>
 
+<div>
 {% block content %}
 {% endblock %}
+</div>
+
+
 </body>
 </html>

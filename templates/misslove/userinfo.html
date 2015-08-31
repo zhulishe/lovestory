@@ -1,0 +1,11 @@
+{% extends 'misslove/base.html' %}
+
+{% block title %}个人信息{% endblock %}
+
+{% block content %}
+    <div>
+    <p>姓名: {{ current_user.username }}</p>
+    <p>邮箱: {{ current_user.email }}</p>
+    <p>个性签名: {{ current_user.whats_up }}</p>
+    </div>
+{% endblock %}
