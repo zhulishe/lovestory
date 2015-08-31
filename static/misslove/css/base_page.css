@@ -2,17 +2,27 @@
     color:#d77883;
 }
 
-body{
+body {
     margin-left: 25%;
     margin-right: 25%;
+    background-color: beige;
 }
-
 #logo{
     width: 120px;
     height:120px;
+    border-radius:50%;
 }
 
 .index{
     color:#d77883;
     font-style: italic;
+}
+
+#user{
+    float: left;
+}
+
+#avatar{
+    width: 120px;
+    height: 120px;
 }
