@@ -11,7 +11,12 @@
 </head>
 
 <body>
-<h1 id="title"><a href="{% url 'homepage' %}">MissLove</a></h1>
+ <img id="logo" src="{% static 'misslove/img/logo.png' %}"/>
+ <h1 id="title"><a href="{% url 'homepage' %}">MissLove</a></h1>
+ <p class="index">Whisper you love stories here</p>
+
+
+
 
 <div>
     {% if user.is_authenticated %}
@@ -23,8 +28,6 @@
         <a href="{% url 'signup' %}">注册</a>
     {% endif %}
 </div>
-
-<p>Whisper you love stories here</p>
 
 <div>
 {% block content %}

@@ -1,10 +1,15 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from misslove.models import NewUser
+from misslove.models import NewUser, Article
 from django.contrib.auth import get_user_model
+
+
+class NewArticleForm(forms.ModelForm):
+	class Meta:
+		model = Article
+		fields = ('title', 'text', 'choose_type', 'image')
 
 
 class UserForm(UserCreationForm):

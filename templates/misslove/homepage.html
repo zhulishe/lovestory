@@ -3,5 +3,12 @@
 {% block title %}首页{% endblock %}
 
 {% block content %}
-I'm homepage
+    <p>I'm homepage</p>
+    <div><a href="{% url 'new_article' %}">New Article</a></div>
+    <p>
+        <a href="{% url 'article_crossing' %}">失恋</a>
+        <a href="">暗恋</a>
+        <a href="">异地恋</a>
+        <a href="">爱恋</a>
+    </p>
 {% endblock %}

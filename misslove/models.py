@@ -18,7 +18,7 @@ class Article(models.Model):
 	title = models.CharField(max_length=200)
 	text = models.TextField()
 	choose_type = models.IntegerField(choices=article_type)
-	created_time = models.TimeField(default=timezone.now, editable=False)
+	created_time = models.DateField(default=timezone.now, editable=False)
 	# article valid or invalid
 	status = models.IntegerField(default=1)
 	image = models.ImageField(u'文章图片',upload_to='images/articleimg', blank=True)

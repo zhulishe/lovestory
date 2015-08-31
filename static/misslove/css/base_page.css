@@ -3,6 +3,16 @@
 }
 
 body{
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#logo{
+    width: 120px;
+    height:120px;
+}
+
+.index{
+    color:#d77883;
+    font-style: italic;
 }

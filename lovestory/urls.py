@@ -28,6 +28,10 @@ urlpatterns = [
 	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="logout"),
 	url(r'^accounts/info/(?P<user_id>\d+)/$', 'misslove.views.users.user_info', name="user_info"),
     url(r'^account/edit/(?P<user_id>\d+)/$', 'misslove.views.users.info_edit', name="info_edit"),
+	
+	url(r'^articles/new$','misslove.views.articles.new_article', name="new_article"),
+    url(r'^articles/crossing$', 'misslove.views.articles.article_crossing', name="article_crossing"),
+    url(r'^articles/crush$', 'misslove.views.articles.article_crush', name="article_crush"),
 ]
 
 if settings.DEBUG:
