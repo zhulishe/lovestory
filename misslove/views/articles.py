@@ -45,3 +45,10 @@ def article_detail(request, article_id):
 	return render_to_response(template_name,
 							  {'article': article},
 							  context_instance=RequestContext(request))
+
+
+def article_delete(request, article_id):
+	article = get_object_or_404(Article, id = article_id)
+	article.status = 0
+	article.save()
+	return redirect('user_info',user_id = request.user.id )

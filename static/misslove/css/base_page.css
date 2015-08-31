@@ -1,6 +1,11 @@
 #title {
     color:#d77883;
 }
+#title a {
+    text-decoration:none;
+    color:#d77883;
+}
+#title a:visited {text-decoration: none;}
 
 body {
     margin-left: 25%;
@@ -16,6 +21,7 @@ body {
 .index{
     color:#d77883;
     font-style: italic;
+    font-size: small;
 }
 
 #user{

@@ -10,10 +10,11 @@
 </head>
 
 <body>
- <img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>
- <h1 id="title"><a href="{% url 'homepage' %}">MissLove</a></h1>
- <p class="index">Whisper you love stories here</p>
-
+<div id="top_part">
+    <img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>
+    <h1 id="title"><a href="{% url 'homepage' %}">MissLove</a></h1>
+    <p class="index">Whisper you love stories here</p>
+</div>
 
 <div id="user">
     {% if user.is_authenticated %}

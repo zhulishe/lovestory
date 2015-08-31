@@ -27,11 +27,12 @@ urlpatterns = [
 	url(r'^accounts/login/$', 'django.contrib.auth.views.login', name="login"),
 	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="logout"),
 	url(r'^accounts/info/(?P<user_id>\d+)/$', 'misslove.views.users.user_info', name="user_info"),
-    url(r'^account/edit/(?P<user_id>\d+)/$', 'misslove.views.users.info_edit', name="info_edit"),
-	
-	url(r'^articles/new$','misslove.views.articles.new_article', name="new_article"),
+    url(r'^accounts/edit/(?P<user_id>\d+)/$', 'misslove.views.users.info_edit', name="info_edit"),
+	url(r'^articles/new/$','misslove.views.articles.new_article', name="new_article"),
     url(r'^articles/catalog/(?P<article_type>\d+)/$', 'misslove.views.articles.article_catalog', name="article_catalog"),
 	url(r'^articles/detail/(?P<article_id>\d+)/$', 'misslove.views.articles.article_detail', name="article_detail"),
+    url(r'^articles/delete/(?P<article_id>\d+)/$', 'misslove.views.articles.article_delete', name="article_delete"),
+
 ]
 
 if settings.DEBUG:
