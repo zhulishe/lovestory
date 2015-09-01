@@ -10,6 +10,17 @@
 </head>
 
 <body>
+
+<div>
+    <form action="/articles/search/" method="get">
+        <label>
+            <input type="text" name="query" placeholder="输入搜索内容" value=""/>
+        </label>
+        <input type="submit" value="搜索">
+    </form>
+</div>
+
+
 <div id="top_part">
     <img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>
     <h1 id="title"><a href="{% url 'homepage' %}">MissLove</a></h1>

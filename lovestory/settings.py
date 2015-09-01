@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'misslove',
+    'haystack',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -116,3 +117,14 @@ AUTH_USER_MODEL = 'misslove.NewUser'
 # Media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# full text search
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'misslove.whoosh_cn_backend.WhooshEngine',
+    	'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
+
+# update index
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

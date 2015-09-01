@@ -1,0 +1,22 @@
+{% extends 'misslove/base.html' %}
+
+{% block title %}搜索结果{% endblock %}
+
+{% block content %}
+    <div>
+    {% if list_header %}
+        <div>{{ list_header }}</div>
+    {% endif %}
+    </div>
+
+    <div>
+    <p>{{ articles|length }}</p>
+    {% for article in articles %}
+        <div>
+            <h2><a href="{% url 'misslove.views.articles.article_detail' article_id=article.pk %}">
+                {{ article.title }}</a></h2>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

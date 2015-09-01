@@ -21,8 +21,9 @@ from misslove.views import articles, comments, users
 
 urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
+    url(r'^search/', include('haystack.urls')),
 
-    url(r'^$', articles.homepage, name='homepage'),
+    url(r'^$', 'misslove.views.articles.homepage', name='homepage'),
     url(r'^accounts/signup/$', 'misslove.views.users.sign_up', name='signup'),
 	url(r'^accounts/login/$', 'django.contrib.auth.views.login', name="login"),
 	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="logout"),
@@ -33,7 +34,7 @@ urlpatterns = [
     url(r'^articles/catalog/(?P<article_type>\d+)/$', 'misslove.views.articles.article_catalog', name="article_catalog"),
 	url(r'^articles/detail/(?P<article_id>\d+)/$', 'misslove.views.articles.article_detail', name="article_detail"),
     url(r'^articles/delete/(?P<article_id>\d+)/$', 'misslove.views.articles.article_delete', name="article_delete"),
-
+	url(r'^articles/search/$', 'misslove.views.articles.full_search', name="article_full_search"),
 
 	url(r'^comment/add/(?P<article_id>\d+)/$','misslove.views.comments.comment_add', name='add_comment'),
 ]

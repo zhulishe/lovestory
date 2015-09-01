@@ -40,7 +40,8 @@
         <ul>
         {% for user_comment in user_comments %}
             <li>
-               <a href="/articles/detail/{{ user_comment.article.id }}">{{ user_comment.article.title }}</a>&nbsp;&nbsp;<a href="#">删除</a>
+               <a href="/articles/detail/{{ user_comment.article.id }}/#comment_{{ user_comment.id }}">
+                   {{ user_comment.article.title }}</a>&nbsp;&nbsp;<a href="#">删除</a>
             </li>
         {% endfor %}
         </ul>
