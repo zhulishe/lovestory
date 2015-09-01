@@ -40,6 +40,13 @@ pip install MySQL-python
     flush privileges;
     ```
 
+* 全文搜索
+```bash
+pip install django-haystack
+pip install whoosh
+pip install jieba
+```
+
 *****
 2015-08-31任务:
 

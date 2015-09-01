@@ -37,8 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'misslove',
     'haystack',
+    'misslove',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -122,6 +122,7 @@ MEDIA_URL = '/media/'
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'misslove.whoosh_cn_backend.WhooshEngine',
+#		'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
     	'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
     },
 }

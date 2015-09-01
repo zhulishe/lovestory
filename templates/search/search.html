@@ -1,0 +1,53 @@
+{% extends 'misslove/base.html' %}
+
+{% block title %}搜索结果{% endblock %}
+
+{% block content %}
+
+
+    <form method="get" action="">
+        <table>
+            <tr>
+                <td>
+                    <label for="id_q"></label>
+                </td>
+                <td>
+                    <input id="id_q" name="q" type="search" value="{{ query }}" />
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="搜索">
+                </td>
+            </tr>
+        </table>
+
+        {% if query %}
+            <h3>搜索结果</h3>
+
+            {% for result in page.object_list %}
+                <div>
+                <p>
+                    <a href="{% url 'misslove.views.articles.article_detail' article_id=result.object.id %}">
+                        {{ result.object.title }}</a>
+                </p>
+                <p>{{ result.object.text | truncatechars:40 }}</p>
+                </div>
+            {% empty %}
+                <p>没有得到想要的结果哦.</p>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; 上一页{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}下一页 &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+        {% endif %}
+    </form>
+
+{% endblock %}
