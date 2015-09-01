@@ -1,23 +1,28 @@
 {% extends "misslove/base.html" %}
+{% load staticfiles %}
+
+    {% block extracss %} <link href="{% static 'misslove/css/article_detail.css' %}" rel="stylesheet" /> {% endblock %}
 
 {% block title %}{{ article }}{% endblock %}
 
 {% block content %}
-    <h1>{{ article }}</h1>
+   <!-- <h1>{{ article }}</h1> -->
 
     <div>
-        <div>
+       <!-- <div>
+           <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
             <a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a>
-            <img src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
-        </div>
+        </div> -->
 
         <div>
-            <p>{{ article.title }}</p>
+            <p> <h2>{{ article.title }}</h2>  <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/> {{ article.author }}</p>
+
             <p>{{ article.created_time }}</p>
             <p>{{ article.text }}</p>
             {% if article.image %}
                 <img src="{{ article.image.url }}" alt="{{ article }}" title="{{ article }}"/>
             {% endif %}
+            <p><a href="/articles/edit/{{ article.id }}">编辑文章</a></p>
         </div>
     </div>
 
@@ -28,6 +33,7 @@
         <a href="/accounts/info/{{ comment.author.id }}">{{ comment.author }}</a>
         <p>{{ comment.comment_time }}</p>
         <p>{{ comment.content }}</p>
+        <p><a href="/comments/edit/{{ comment.id }}">编辑评论</a></p>
         </div>
     {% endfor %}
     </div>

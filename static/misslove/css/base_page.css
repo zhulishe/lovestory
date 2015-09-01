@@ -25,15 +25,23 @@ body {
     font-size: small;
 }
 
-#user{
+#sign{
     float: left;
-    clear: both;
+}
+
+#user{
+    float: right;
 }
 
 #avatar{
-    width: 120px;
-    height: 120px;
+    width: 70px;
+    height: 70px;
 }
 
 #top_part{
+    margin-bottom: 70px;
+}
+
+#body_part{
+    clear: both;
 }

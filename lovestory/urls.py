@@ -33,9 +33,10 @@ urlpatterns = [
     url(r'^articles/catalog/(?P<article_type>\d+)/$', 'misslove.views.articles.article_catalog', name="article_catalog"),
 	url(r'^articles/detail/(?P<article_id>\d+)/$', 'misslove.views.articles.article_detail', name="article_detail"),
     url(r'^articles/delete/(?P<article_id>\d+)/$', 'misslove.views.articles.article_delete', name="article_delete"),
-
-
-	url(r'^comment/add/(?P<article_id>\d+)/$','misslove.views.comments.comment_add', name='add_comment'),
+	url(r'^articles/edit/(?P<article_id>\d+)$', 'misslove.views.articles.article_edit', name="article_edit"),
+	url(r'^comment/add/(?P<article_id>\d+)/$','misslove.views.comments.comment_add', name="add_comment"),
+    url(r'^comments/delete/(?P<comment_id>\d+)/$','misslove.views.comments.comment_delete', name="comment_delete"),
+    url(r'^comments/edit/(?P<comment_id>\d+)/$','misslove.views.comments.comment_edit', name="comment_edit"),
 ]
 
 if settings.DEBUG:

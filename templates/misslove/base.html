@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
 
     <link href="{% static 'misslove/css/base_page.css' %}" rel="stylesheet" type="text/css"/>
+    {% block extracss %}{% endblock %}
     <link rel="shortcut icon" type="image/png" herf="{% static 'misslove/img/logo.jpg' %}" />
     <title>{% block title %}{% endblock %} | 失恋博物馆</title>
 </head>
 
 <body>
 <div id="top_part">
+<div id="sign">
     <img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>
     <h1 id="title"><a href="{% url 'homepage' %}">MissLove</a></h1>
     <p class="index">Whisper you love stories here</p>
 </div>
 
-<div id="user">
+    <div id="user">
     {% if user.is_authenticated %}
         <img src="{{ user.get_avatar }}" alt="{{ user.username }}" title="{{ user.username }}" id="avatar"/>
         <a href="/accounts/info/{{ user.id }}" >{{ user.username }}</a>
@@ -25,9 +27,12 @@
         <a href="{% url 'login' %}">登录</a>
         <a href="{% url 'signup' %}">注册</a>
     {% endif %}
+    </div>
+
 </div>
 
-<div>
+
+<div id="body_part">
 {% block content %}
 {% endblock %}
 </div>

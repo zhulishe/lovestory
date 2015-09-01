@@ -1,8 +1,6 @@
-
 {% extends "misslove/base.html" %}
 {% block title %}新建文章{% endblock %}
 {% block content %}
-    <h1>Add you new article below:</h1>
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}

@@ -53,3 +53,16 @@ def article_delete(request, article_id):
 	article.status = 0
 	article.save()
 	return redirect('user_info',user_id = request.user.id )
+
+def article_edit(request, article_id):
+	article = get_object_or_404(Article, id = article_id)
+	if request.method == "POST":
+		form = NewArticleForm(request.POST, request.FILES, instance=article)
+		if form.is_valid():
+			article = form.save(commit=False)
+			article.author = request.user
+			article.save()
+			return redirect('article_detail',article_id=article_id)
+	else:
+		form = NewArticleForm(instance=article)
+	return render(request, 'misslove/new_article.html', {'form':form})
