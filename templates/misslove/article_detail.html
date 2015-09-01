@@ -26,10 +26,12 @@
         </div>
     </div>
 
-    <div>
+    <div id="comment_box">
+    <h2>评论区</h2>
     {% for comment in comments %}
         <hr/>
-        <div>
+        <div id="comment_{{ comment.id }}">
+        <p>#{{ forloop.counter }}</p>
         <a href="/accounts/info/{{ comment.author.id }}">{{ comment.author }}</a>
         <p>{{ comment.comment_time }}</p>
         <p>{{ comment.content }}</p>
@@ -50,5 +52,14 @@
         <p>登录才可以评论哦</p>
     {% endif %}
     </div>
+
+
+ <script type="text/javascript">
+  if(document.getElementById("comment_box").clientHeight>400)
+  {
+      document.getElementById("comment_box").style.height="400px";
+      document.getElementById("comment_box").style.overflowY="scroll";
+  }
+ </script>
 
 {% endblock %}

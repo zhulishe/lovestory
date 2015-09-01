@@ -5,15 +5,34 @@
 {% block content %}
     <h1>{{ article_type }}</h1>
 
-    {% ifequal articles|length 0%}
+    {% ifequal articles.paginator.count 0%}
         <p>{{ article_type }}版区现在还没有任何人发帖哦，赶快去发布吧</p>
     {% else %}
-        {% for article in articles %}
+        {% for article in articles.object_list %}
+            <hr/>
+            <div>
             <h1>{{article.title  }}</h1>
             <p>{{ article.author }},{{ article.created_time }}</p>
             <p>{{ article.text | truncatechars:40 }}</p>
             <a href="/articles/detail/{{ article.id }}">Read More...</a>
+            </div>
         {% endfor %}
     {% endifequal %}
+
+    {% ifnotequal articles.paginator.num_pages 1 %}
+        {% if articles.has_previous %}
+        <a href="?page={{ articles.previous_page_number }}">上一页</a>
+        {% endif %}
+        {% for page_number in articles.paginator.page_range %}
+            {% ifequal page_number articles.number %}
+                {{ page_number }}
+            {% else %}
+                <a href="?page={{ page_number }}">{{ page_number }}</a>
+            {% endifequal %}
+        {% endfor %}
+        {% if articles.has_next %}
+        <a href="?page={{ articles.next_page_number }}">下一页</a>
+        {% endif %}
+    {% endifnotequal %}
 
 {% endblock %}
