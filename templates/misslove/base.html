@@ -11,15 +11,16 @@
 
 <body>
 
+{% if user.is_authenticated %}
 <div>
-    <form action="/articles/search/" method="get">
+    <form action="/search" method="get">
         <label>
-            <input type="text" name="query" placeholder="输入搜索内容" value=""/>
+            <input type="text" name="q" placeholder="输入搜索内容" value="{{ query }}"/>
         </label>
         <input type="submit" value="搜索">
     </form>
 </div>
-
+{% endif %}
 
 <div id="top_part">
     <img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>

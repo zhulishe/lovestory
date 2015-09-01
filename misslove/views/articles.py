@@ -64,13 +64,6 @@ def article_delete(request, article_id):
 	article.save()
 	return redirect('user_info',user_id = request.user.id )
 
-def full_search(request):
-	template_name = 'misslove/article_search_list.html'
-	keywords = request.GET['query']
-	sform = SearchForm(request.GET)
-	articles = sform.search()
-	list_header = u'关键字\'{}\'搜索结果'.format(keywords)
-	return render(request, template_name,
-				  {'articles':articles, 'list_header':list_header})
+
 
 

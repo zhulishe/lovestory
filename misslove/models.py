@@ -8,6 +8,10 @@ from django.utils import timezone
 
 
 class Article(models.Model):
+	class Meta:
+		verbose_name = u'文章'
+		verbose_name_plural = u'文章'
+
 	article_type = (
 		(1, u'失恋'),
 		(2, u'暗恋'),
@@ -27,6 +31,10 @@ class Article(models.Model):
 		return self.title
 
 class Comment(models.Model):
+	class Meta:
+		verbose_name = u'评论'
+		verbose_name_plural = u'评论'
+
 	article = models.ForeignKey(Article)
 	author = models.ForeignKey(settings.AUTH_USER_MODEL)
 	content = models.TextField()
