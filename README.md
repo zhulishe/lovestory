@@ -1,7 +1,7 @@
 #MissLove
 
 ##Introduction
-A platform for people to share their stories
+A platform for people to share their love stories
 
 ##Environment
 Django=1.8.4
