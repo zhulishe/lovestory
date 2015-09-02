@@ -3,14 +3,32 @@
 {% block title %}{{ article_type }}{% endblock %}
 
 {% block content %}
-    <h1>{{ article_type }}</h1>
+    <!--板块名字-->
+    <div class="page-header">
+        <h1>
+            {{ article_type }}
+            {% if article_type == "失恋"%}
+                <small>失恋是一首诗</small>
+            {% elif article_type == "暗恋" %}
+                <small>暗恋是一首诗</small>
+            {% elif article_type == "异地恋" %}
+                <small>异地恋是一首诗</small>
+            {% elif article_type == "爱恋" %}
+                <small>爱恋是一首诗</small>
+            {% endif %}
 
+        </h1>
+    </div>
+
+    <!--本版块没有人发布文章-->
     {% ifequal articles.paginator.count 0%}
-        <p>{{ article_type }}版区现在还没有任何人发帖哦，赶快去发布吧</p>
+        <div class="no-article">
+             <p>{{ article_type }}版区现在还没有任何人发帖哦，赶快去发布吧</p>
+        </div>
+    <!--本板块有人发布文章-->
     {% else %}
         {% for article in articles.object_list %}
-            <hr/>
-            <div>
+            <div class="one-article">
             <h1>{{article.title  }}</h1>
             <p>{{ article.author }},{{ article.created_time }}</p>
             <p>{{ article.text | safe | truncatechars:40 }}</p>

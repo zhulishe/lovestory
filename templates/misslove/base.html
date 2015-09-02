@@ -16,67 +16,89 @@
     </script>
 
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
-    <!--<link href="{% static 'misslove/css/base_page.css' %}" rel="stylesheet" type="text/css"/>-->
+   <link href="{% static 'misslove/css/base.css' %}" rel="stylesheet" type="text/css"/>
     {% block extracss %}{% endblock %}
 
-    <title>{% block title %}{% endblock %} | 失恋博物馆</title>
+    <title>{% block title %}{% endblock %} | 爱情博物馆</title>
 </head>
 
 <body>
 <div>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top mynav" role="navigation">
     <!--Logo-->
     <div class="navbar-header">
-        <!--<img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>-->
-        <a class="navbar-brand" href="{% url 'homepage' %}">MissLove</a>
+        <img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>
+        <!--MissLove-->
+        <div class="logo_text">
+            <div class="logo_textAbove" >
+                 <a class="navbar-brand" href="{% url 'homepage' %}">MissLove</a>
+            </div>
+            <div  class="logo_textBelow">
+                <p>Whisper your love stories here</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="articleTypeList">
+        <ul class="nav navbar-nav">
+            <li><a href="/articles/catalog/1">失恋</a></li>
+            <li><a href="/articles/catalog/2">暗恋</a></li>
+            <li><a href="/articles/catalog/3">异地恋</a></li>
+            <li><a href="/articles/catalog/4">爱恋</a></li>
+        </ul>
     </div>
 
     <!--非header部分-->
-    <div>
-    <!--用户头像-->
-    {% if user.is_authenticated %}
-        <div class="navbar-right" style="margin-right: 10px">
-        <!--<img src="{{ user.get_avatar }}" alt="{{ user.username }}"
-             title="{{ user.username }}" id="avatar" />-->
 
-        <a href="/accounts/info/{{ user.id }}" class="navbar-text">{{ user.username }}</a>
+    <!--用户信息-->
+    <div class="userInfo">
+        {% if user.is_authenticated %}
+            <div class="navbar-right" style="margin-right: 10px">
+            <a href="{% url 'new_article' %}"><span class="glyphicon glyphicon-plus"></span></a>
+            <img id="avatar" src="{{ user.get_avatar }}" alt="{{ user.username }}"
+                title="{{ user.username }}"/>
+                <a href="/accounts/info/{{ user.id }}" class="navbar-link">{{ user.username }}</a>
+                <a href="{% url 'logout' %}" class="navbar-link">退出</a>
+            </div>
 
-        <a href="{% url 'logout' %}" class="navbar-text">退出</a>
-        </div>
-
-    {% else %}
-        <div class="navbar-text navbar-right" style="margin-right: 10px">
-        <a href="{% url 'login' %}" >登录</a>
-        <a href="{% url 'signup' %}" >注册</a>
-        </div>
-    {% endif %}
-
+        {% else %}
+            <div class="navbar-text navbar-right" style="margin-right: 10px">
+                <a href="{% url 'login' %}" >登录</a>
+                <a href="{% url 'signup' %}" >注册</a>
+             </div>
+        {% endif %}
+    </div>
 
     <!--搜索框-->
-    {% if user.is_authenticated %}
 
+    {% if user.is_authenticated %}
         <form action="/search" method="get" class="navbar-form navbar-left" role="search">
             <div class="form-group">
                 <input type="text" class="form-control" name="q" placeholder="输入搜索内容" value="{{ query }}"/>
+            </div>
 
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-defaul">
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
 
-            </div>
         </form>
-
     {% endif %}
-    </div>
+
 
 
 </nav>
 </div>
 
+
+
 <!--中间部分-->
-<div id="body_part" class="container" style="padding-top: 50px">
-    {% block content %}
-    {% endblock %}
+<div class="container" style="padding-top: 50px">
+    <div class="body-part">
+        {% block content %}
+        {% endblock %}
+    </div>
+
 </div>
 
 <!--底部基本信息-->
