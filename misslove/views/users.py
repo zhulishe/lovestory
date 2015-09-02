@@ -1,7 +1,8 @@
+# coding:UTF-8
 from django.shortcuts import get_object_or_404,render_to_response,redirect
 from django.template import RequestContext
 from misslove.models import NewUser, Article, Comment
-from misslove.forms import UserForm, InfoEdit
+from misslove.forms import UserForm, InfoEdit, ChangePasswordForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
@@ -53,3 +54,25 @@ def info_edit(request, user_id):
 	return render_to_response('misslove/infoedit.html',
 							  {'info_form': ifed},
 							  context_instance=RequestContext(request))
+
+
+@login_required
+def change_password(request, user_id):
+	error = []
+	user = get_object_or_404(request, id = user_id)
+	if request.method == 'POST':
+		form = ChangePasswordForm(request.POST)
+		if form.is_valid():
+			data = form.cleaned_data
+			if data['password_current'] == user.password:
+				if data['password_new'] == data['password_again']:
+					user.set_password(data['password_new'])
+					user.save()
+					return redirect('login')
+				else:
+					error.append("两次输入密码不一样")
+			else:
+				error.append("请输入正确的旧密码")
+	else:
+		form = ChangePasswordForm()
+	return render_to_response('misslove/change_password.html',{'form':form,'error':error})

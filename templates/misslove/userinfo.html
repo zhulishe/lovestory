@@ -6,7 +6,7 @@
 
     <div>
     {% ifequal current_user.id user.id %}
-        <a href="/account/edit/{{ current_user.id }}">编辑</a>
+        <a href="/accounts/edit/{{ current_user.id }}">编辑</a>
     {% endifequal %}
     </div>
 
@@ -18,7 +18,7 @@
     </div>
 
     <div>
-    <p>已发表文章（共{{ user_articles | length }}篇）</p>
+    <p><h2>已发表文章（共{{ user_articles | length }}篇）</h2></p>
     {% ifequal user_articles|length 0 %}
         <P>对不起，你还没有发表过任何文章哦</P>
     {% else %}
@@ -33,7 +33,7 @@
     </div>
 
     <div>
-    <p>已发表评论（共{{ user_comments|length }}条）</p>
+    <p><h2>已发表评论（共{{ user_comments|length }}条）</h2></p>
     {% ifequal user_comments|length 0 %}
         <P>对不起，你还没有发表过任何评论哦</P>
     {% else %}
@@ -46,6 +46,10 @@
         {% endfor %}
         </ul>
     {% endifequal %}
+    </div>
+
+    <div id="change_passwd">
+    <a href="/accounts/changepasswd/{{ current_user.id }}">修改密码</a>
     </div>
 
 {% endblock %}

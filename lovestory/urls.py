@@ -28,15 +28,16 @@ urlpatterns = [
 	url(r'^accounts/login/$', 'django.contrib.auth.views.login', name="login"),
 	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="logout"),
 	url(r'^accounts/info/(?P<user_id>\d+)/$', 'misslove.views.users.user_info', name="user_info"),
-    url(r'^account/edit/(?P<user_id>\d+)/$', 'misslove.views.users.info_edit', name="info_edit"),
+    url(r'^accounts/edit/(?P<user_id>\d+)/$', 'misslove.views.users.info_edit', name="info_edit"),
+	url(r'^accounts/changepasswd/(?P<user_id>\d+)/$', 'misslove.views.users.change_password', name='change_password'),
 	
 	url(r'^articles/new$','misslove.views.articles.new_article', name="new_article"),
     url(r'^articles/catalog/(?P<article_type>\d+)/$', 'misslove.views.articles.article_catalog', name="article_catalog"),
 	url(r'^articles/detail/(?P<article_id>\d+)/$', 'misslove.views.articles.article_detail', name="article_detail"),
     url(r'^articles/delete/(?P<article_id>\d+)/$', 'misslove.views.articles.article_delete', name="article_delete"),
+    url(r'^articles/edit/(?P<article_id>\d+)$', 'misslove.views.articles.article_edit', name="article_edit"),
 
-	url(r'^articles/edit/(?P<article_id>\d+)$', 'misslove.views.articles.article_edit', name="article_edit"),
-	url(r'^comment/add/(?P<article_id>\d+)/$','misslove.views.comments.comment_add', name="add_comment"),
+	url(r'^comments/add/(?P<article_id>\d+)/$','misslove.views.comments.comment_add', name="add_comment"),
     url(r'^comments/delete/(?P<comment_id>\d+)/$','misslove.views.comments.comment_delete', name="comment_delete"),
     url(r'^comments/edit/(?P<comment_id>\d+)/$','misslove.views.comments.comment_edit', name="comment_edit"),
 
@@ -45,7 +46,5 @@ urlpatterns = [
 
 if settings.DEBUG:
 	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
 
 
