@@ -1,54 +1,93 @@
-{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="zh-cn">
+{% load staticfiles %}
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    maximum-scale=1.0, user-scalable=no">
 
-    <link href="{% static 'misslove/css/base_page.css' %}" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="{% static 'tinymce/tinymce.min.js' %}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            language: "zh_CN"
+        });
+    </script>
+
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <!--<link href="{% static 'misslove/css/base_page.css' %}" rel="stylesheet" type="text/css"/>-->
     {% block extracss %}{% endblock %}
-    <link rel="shortcut icon" type="image/png" herf="{% static 'misslove/img/logo.jpg' %}" />
+
     <title>{% block title %}{% endblock %} | 失恋博物馆</title>
 </head>
 
 <body>
-
-{% if user.is_authenticated %}
 <div>
-    <form action="/search" method="get">
-        <label>
-            <input type="text" name="q" placeholder="输入搜索内容" value="{{ query }}"/>
-        </label>
-        <input type="submit" value="搜索">
-    </form>
-</div>
-{% endif %}
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!--Logo-->
+    <div class="navbar-header">
+        <!--<img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>-->
+        <a class="navbar-brand" href="{% url 'homepage' %}">MissLove</a>
+    </div>
 
-<div id="top_part">
-<div id="sign">
-    <img id="logo" src="{% static 'misslove/img/logo.jpg' %}"/>
-    <h1 id="title"><a href="{% url 'homepage' %}">MissLove</a></h1>
-    <p class="index">Whisper you love stories here</p>
-</div>
-
-    <div id="user">
+    <!--非header部分-->
+    <div>
+    <!--用户头像-->
     {% if user.is_authenticated %}
-        <img src="{{ user.get_avatar }}" alt="{{ user.username }}" title="{{ user.username }}" id="avatar"/>
-        <a href="/accounts/info/{{ user.id }}" >{{ user.username }}</a>
-        <a href="{% url 'logout' %}">退出</a>
+        <div class="navbar-right" style="margin-right: 10px">
+        <!--<img src="{{ user.get_avatar }}" alt="{{ user.username }}"
+             title="{{ user.username }}" id="avatar" />-->
+
+        <a href="/accounts/info/{{ user.id }}" class="navbar-text">{{ user.username }}</a>
+
+        <a href="{% url 'logout' %}" class="navbar-text">退出</a>
+        </div>
+
     {% else %}
-        <a href="{% url 'login' %}">登录</a>
-        <a href="{% url 'signup' %}">注册</a>
+        <div class="navbar-text navbar-right" style="margin-right: 10px">
+        <a href="{% url 'login' %}" >登录</a>
+        <a href="{% url 'signup' %}" >注册</a>
+        </div>
+    {% endif %}
+
+
+    <!--搜索框-->
+    {% if user.is_authenticated %}
+
+        <form action="/search" method="get" class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="q" placeholder="输入搜索内容" value="{{ query }}"/>
+
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+
+            </div>
+        </form>
+
     {% endif %}
     </div>
 
+
+</nav>
+</div>
+
+<!--中间部分-->
+<div id="body_part" class="container" style="padding-top: 50px">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!--底部基本信息-->
+<div>
+
 </div>
 
 
-<div id="body_part">
-{% block content %}
-{% endblock %}
-</div>
-
+<script src="{% static 'bootstrap/js/jquery-1.11.3.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+{% block extrajs %}{% endblock %}
 
 </body>
 </html>

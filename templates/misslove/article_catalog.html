@@ -13,7 +13,7 @@
             <div>
             <h1>{{article.title  }}</h1>
             <p>{{ article.author }},{{ article.created_time }}</p>
-            <p>{{ article.text | truncatechars:40 }}</p>
+            <p>{{ article.text | safe | truncatechars:40 }}</p>
             <a href="/articles/detail/{{ article.id }}">Read More...</a>
             </div>
         {% endfor %}

@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from misslove.forms import NewArticleForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from haystack.forms import SearchForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -15,6 +15,7 @@ def homepage(request):
 							  context_instance=RequestContext(request))
 
 
+@login_required
 def new_article(request):
 	template_name = 'misslove/new_article.html'
 	if request.method == "POST":
@@ -58,6 +59,7 @@ def article_detail(request, article_id):
 							  context_instance=RequestContext(request))							  
 
 
+@login_required
 def article_delete(request, article_id):
 	article = get_object_or_404(Article, id = article_id)
 	article.status = 0
@@ -65,6 +67,7 @@ def article_delete(request, article_id):
 	return redirect('user_info',user_id = request.user.id )
 
 
+@login_required
 def article_edit(request, article_id):
 	article = get_object_or_404(Article, id = article_id)
 	if request.method == "POST":

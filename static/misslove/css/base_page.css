@@ -8,10 +8,9 @@
 #title a:visited {text-decoration: none;}
 
 body {
-    margin-left: 25%;
-    margin-right: 25%;
     background-color: beige;
 }
+
 #logo{
     width: 120px;
     height:120px;
@@ -43,5 +42,7 @@ body {
 }
 
 #body_part{
+    margin-left: 5%;
+    margin-right: 5%;
     clear: both;
 }
