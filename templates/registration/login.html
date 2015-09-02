@@ -2,7 +2,6 @@
 {% load staticfiles %}
 
 {% block extracss %}
-    <link rel="stylesheet" href="{% static 'misslove/css/login/reset.css' %}"/>
     <link rel="stylesheet" href="{% static 'misslove/css/login/supersized.css' %}"/>
     <link rel="stylesheet" href="{% static 'misslove/css/login/style.css' %}"/>
 {% endblock %}
@@ -10,33 +9,29 @@
 {% block title %}登录{% endblock %}
 
 {% block content %}
-<div class="page-container">
+<div class="page-container no-js">
+
+    <h1>登录</h1>
+
+    <form method="post" action="{% url 'django.contrib.auth.views.login' %}" role="form">
+    {% csrf_token %}
+        <div class="form-group">
+        <input type="text" name="username" class="form-control" placeholder="用户名" />
+        <input type="password" name="password" class="form-control" placeholder="密码" />
+        <button type="submit">登录</button>
+        <input type="hidden" name="next" value="/" />
+        </div>
+    </form>
 
     {% if form.errors %}
-    <p>用户名与密码不匹配,请重试</p>
+        <p class="loginerror">用户名与密码不匹配,请重试</p>
     {% endif %}
 
-    <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
-    {% csrf_token %}
-    <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-    </table>
-
-        <input type="submit" value="login"/>
-        <input type="hidden" name="next" value="/" />
-    </form>
 </div>
 {% endblock %}
 
 {% block extrajs %}
-    <script src="{% static 'misslove/js/login/supersized-init.js' %}"></script>
+    <script src="{% static 'misslove/js/login/jquery-1.8.2.min.js' %}"></script>
     <script src="{% static 'misslove/js/login/supersized.3.2.7.min.js' %}"></script>
-    <script src="{% static 'misslove/js/login/scripts.js' %}"></script>
+    <script src="{% static 'misslove/js/login/supersized-init.js' %}"></script>
 {% endblock %}

@@ -4,6 +4,9 @@
 
 {% block content %}
 
+    <img src="{{ current_user.get_avatar }}" alt="{{ current_user.username }}"
+         title="{{ current_user.username }}"/>
+
     <div>
     {% ifequal current_user.id user.id %}
         <a href="/account/edit/{{ current_user.id }}">编辑</a>

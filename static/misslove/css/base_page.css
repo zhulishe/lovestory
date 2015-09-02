@@ -1,48 +1,9 @@
-#title {
-    color:#d77883;
-}
-#title a {
-    text-decoration:none;
-    color:#d77883;
-}
-#title a:visited {text-decoration: none;}
-
-body {
-    background-color: beige;
+.to-top {
+    display: none;
+    padding: 10px 25px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f50;
 }
 
-#logo{
-    width: 120px;
-    height:120px;
-    border-radius:50%;
-    float: left;
-}
-
-.index{
-    color:#d77883;
-    font-style: italic;
-    font-size: small;
-}
-
-#sign{
-    float: left;
-}
-
-#user{
-    float: right;
-}
-
-#avatar{
-    width: 70px;
-    height: 70px;
-}
-
-#top_part{
-    margin-bottom: 70px;
-}
-
-#body_part{
-    margin-left: 5%;
-    margin-right: 5%;
-    clear: both;
-}
