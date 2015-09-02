@@ -9,7 +9,7 @@ from django.contrib.auth import get_user_model
 class NewArticleForm(forms.ModelForm):
 	class Meta:
 		model = Article
-		fields = ('title', 'text', 'choose_type', 'image')
+		fields = ('title', 'text', 'choose_type', 'image',)
 
 
 class UserForm(UserCreationForm):
@@ -24,7 +24,7 @@ class UserForm(UserCreationForm):
 class InfoEdit(forms.ModelForm):
 	class Meta():
 		model = get_user_model()
-		fields = ('username','email', 'gender', 'whats_up', 'avatar', )
+		fields = ('username','email', 'gender', 'whats_up', 'avatar',)
 
 
 class CommentAdd(forms.ModelForm):
@@ -32,6 +32,10 @@ class CommentAdd(forms.ModelForm):
 		model = Comment
 		fields = ('content', )
 
+class ChangePasswordForm(forms.Form):
+	password_current = forms.CharField(label='当前密码',widget=forms.PasswordInput)
+	password_new = forms.CharField(label='新密码', widget=forms.PasswordInput)
+	password_again = forms.CharField(label='重复密码', widget=forms.PasswordInput)
 
 
 
