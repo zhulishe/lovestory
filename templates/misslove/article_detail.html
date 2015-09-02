@@ -6,23 +6,28 @@
 {% block title %}{{ article }}{% endblock %}
 
 {% block content %}
-   <!-- <h1>{{ article }}</h1> -->
+
 
     <div>
-       <!-- <div>
-           <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
-            <a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a>
-        </div> -->
+
 
         <div>
-            <p> <h2>{{ article.title }}</h2>  <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/> {{ article.author }}</p>
+            <h2>{{ article.title }}</h2>
+
+            <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
+            <P><a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a></p>
 
             <p>{{ article.created_time }}</p>
-            <p>{{ article.text }}</p>
+            <div>
+            {{ article.text | safe }}
+            </div>
             {% if article.image %}
                 <img src="{{ article.image.url }}" alt="{{ article }}" title="{{ article }}"/>
             {% endif %}
-            <p><a href="/articles/edit/{{ article.id }}">编辑文章</a></p>
+            {% if article.author.id == user.id %}
+                <a href="/articles/edit/{{ article.id }}">编辑文章</a>
+                <a href="/articles/delete/{{ article.id }}">删除</a>
+            {% endif %}
         </div>
     </div>
 
@@ -34,8 +39,12 @@
         <p>#{{ forloop.counter }}</p>
         <a href="/accounts/info/{{ comment.author.id }}">{{ comment.author }}</a>
         <p>{{ comment.comment_time }}</p>
-        <p>{{ comment.content }}</p>
-        <p><a href="/comments/edit/{{ comment.id }}">编辑评论</a></p>
+        <div>{{ comment.content | safe}}</div>
+
+        {% if user.id == article.author.id or user.id == comment.author.id %}
+            <a href="/comments/edit/{{ comment.id }}">编辑评论</a>
+            <a href="/comments/delete/{{ comment.id }}">删除</a>
+        {% endif %}
         </div>
     {% endfor %}
     </div>

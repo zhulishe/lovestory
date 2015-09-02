@@ -60,4 +60,5 @@ docs/_build/
 target/
 
 .idea
+whoosh_index
 
