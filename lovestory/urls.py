@@ -24,9 +24,9 @@ urlpatterns = [
     url(r'^search/', include('haystack.urls')),
 
     url(r'^$', 'misslove.views.articles.homepage', name='homepage'),
-    url(r'^accounts/signup/$', 'misslove.views.users.sign_up', name='signup'),
-	url(r'^accounts/login/$', 'django.contrib.auth.views.login', name="login"),
-	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="logout"),
+    url(r'^accounts/signup/$', 'misslove.views.users.user_signup', name='signup'),
+    url(r'^accounts/login/$', 'misslove.views.users.user_login', name="login"),
+	url(r'^accounts/logout/$', 'misslove.views.users.user_logout', name='logout'),
 	url(r'^accounts/info/(?P<user_id>\d+)/$', 'misslove.views.users.user_info', name="user_info"),
     url(r'^accounts/edit/(?P<user_id>\d+)/$', 'misslove.views.users.info_edit', name="info_edit"),
 	url(r'^accounts/changepasswd/(?P<user_id>\d+)/$', 'misslove.views.users.change_password', name='change_password'),

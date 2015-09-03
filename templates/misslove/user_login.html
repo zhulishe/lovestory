@@ -13,7 +13,7 @@
 
     <h1>登录</h1>
 
-    <form method="post" action="{% url 'django.contrib.auth.views.login' %}" role="form">
+    <form method="post" action="{% url 'misslove.views.users.user_login' %}" role="form">
     {% csrf_token %}
         <div class="form-group">
         <input type="text" name="username" class="form-control" placeholder="用户名" />
@@ -23,8 +23,10 @@
         </div>
     </form>
 
-    {% if form.errors %}
-        <p class="loginerror">用户名与密码不匹配,请重试</p>
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="loginerror">{{ error }}</p>
+        {% endfor %}
     {% endif %}
 
 </div>

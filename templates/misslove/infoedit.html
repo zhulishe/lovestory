@@ -4,9 +4,42 @@
 
 {% block content %}
     <h2>编辑个人信息</h2>
-    <form enctype="multipart/form-data" method="POST" >
+    <form enctype="multipart/form-data" method="POST" role="form">
 		{% csrf_token %}
-		{{ info_form.as_p }}
-		<button type="submit" >Save</button>
+		<p class="form-group">
+            <label for="id_username">用户名:</label>
+            <input id="id_username" maxlength="30" name="username" type="text" value="{{ current_user }}" class="form-control"/>
+            <span class="helptext help-block">必填。不多于30个字符。只能用字母、数字和字符 @/./+/-/_ 。</span>
+        </p>
+        <p class="form-group">
+            <label for="id_email">电子邮件地址:</label>
+            <input id="id_email" maxlength="254" name="email" type="email" value="{{ current_user.email }}" class="form-control"/>
+        </p>
+        <p class="form-group">
+            <label for="id_gender">性别:</label>
+            <select id="id_gender" name="gender" class="form-control">
+                {% for sex in current_user.sex_choice %}
+                    <option value="{{ sex.0 }}" {% if sex.0 == current_user.gender %}selected{% endif %}>
+                    {{ sex.1 }}
+                    </option>
+                {% endfor %}
+            </select>
+        </p>
+        <p class="form-group">
+            <label for="id_whats_up">个性签名:</label>
+            <input id="id_whats_up" maxlength="50" name="whats_up" type="text" value="{{ current_user.whats_up }}" class="form-control"/></p>
+        <div class="form-group">
+            <label for="id_avatar">头像:</label>
+            目前: <img src="{{ current_user.get_avatar }}"/>
+        {% ifnotequal current_user.get_avatar '/media/images/useravatar/default_avatar.jpg' %}
+            <input id="avatar-clear_id" name="avatar-clear" type="checkbox" />
+            <label for="avatar-clear_id">删除头像</label><br />
+        {% endifnotequal %}
+        </div>
+        <div class="form-group">
+            <label for="id_avatar">修改头像:</label>
+            <input id="id_avatar" name="avatar" type="file" />
+        </div>
+		<button type="submit" class="btn btn-default">Save</button>
 	</form>
 {% endblock %}

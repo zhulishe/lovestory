@@ -1,15 +1,32 @@
 {% extends 'misslove/base.html' %}
+{% load staticfiles %}
 
 {% block title %}{{ current_user.username }}的信息{% endblock %}
 
+{% block extracss %}
+<style type="text/css">
+ul { list-style:none; }
+.main { clear:both; padding:8px; }
+#tabs { border: 1px solid #cbcbcb; background-color: #f2f6fb; padding: 0; margin-top: 20px }
+.menu0 li { display:block; float: left; padding: 4px 0; width:50%; text-align: center; cursor:pointer; background: #FFFFff; }
+.menu0 li.hover { background: #f2f6fb; }
+#main0 div { display: none; }
+#main0 div.block { display: block; }
+</style>
+{% endblock %}
+
 {% block content %}
 
+<div class="row no-js container">
+
+    <div class="col-sm-3">
     <img src="{{ current_user.get_avatar }}" alt="{{ current_user.username }}"
          title="{{ current_user.username }}"/>
 
     <div>
     {% ifequal current_user.id user.id %}
-        <a href="/accounts/edit/{{ current_user.id }}">编辑</a>
+        <a href="/accounts/edit/{{ current_user.id }}">编辑资料</a>
+        <a href="/accounts/changepasswd/{{ current_user.id }}">修改密码</a>
     {% endifequal %}
     </div>
 
@@ -20,7 +37,17 @@
     <p>个性签名: {{ current_user.whats_up }}</p>
     </div>
 
-    <div>
+    </div>
+
+    <div class="col-sm-9" id="tabs">
+
+        <ul class="menu0" id="menu0">
+            <li onclick="setTab(0,0)" class="hover">文章</li>
+            <li onclick="setTab(0,1)">评论</li>
+        </ul>
+
+    <div class="main" id="main0">
+    <div class="block">
     <p><h2>已发表文章（共{{ user_articles | length }}篇）</h2></p>
     {% ifequal user_articles|length 0 %}
         <P>对不起，你还没有发表过任何文章哦</P>
@@ -56,9 +83,24 @@
         </ul>
     {% endifequal %}
     </div>
-
-    <div id="change_passwd">
-    <a href="/accounts/changepasswd/{{ current_user.id }}">修改密码</a>
     </div>
 
+    </div>
+
+    </div>
 {% endblock %}
+
+
+{% block extrajs %}
+    <script>
+    function setTab(m,n){
+    var tli=document.getElementById("menu"+m).getElementsByTagName("li");
+    var mli=document.getElementById("main"+m).getElementsByTagName("div");
+    for(i=0;i<tli.length;i++){
+    tli[i].className=i==n?"hover":"";
+    mli[i].style.display=i==n?"block":"none";
+    }
+    }
+    </script>
+{% endblock %}
+

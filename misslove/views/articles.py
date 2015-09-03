@@ -6,6 +6,7 @@ from django.template import RequestContext
 from misslove.forms import NewArticleForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 # Create your views here.
@@ -26,6 +27,7 @@ def new_article(request):
 			#article.image = img_file
 			article.author = request.user
 			article.save()
+			messages.success(request, u'发布文章成功')
 			return redirect('homepage')
 	else:
 		form = NewArticleForm()
@@ -64,6 +66,7 @@ def article_delete(request, article_id):
 	article = get_object_or_404(Article, id = article_id)
 	article.status = 0
 	article.save()
+	messages.success(request, u'成功删除文章')
 	return redirect('user_info',user_id = request.user.id )
 
 
@@ -76,6 +79,7 @@ def article_edit(request, article_id):
 			article = form.save(commit=False)
 			article.author = request.user
 			article.save()
+			messages.success(request, u'文章编辑成功')
 			return redirect('article_detail',article_id=article_id)
 	else:
 		form = NewArticleForm(instance=article)
