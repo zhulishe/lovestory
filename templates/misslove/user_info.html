@@ -1,0 +1,104 @@
+{% extends 'misslove/base.html' %}
+{% load staticfiles %}
+
+{% block title %}{{ current_user.username }}的信息{% endblock %}
+
+{% block extracss %}
+<style type="text/css">
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="row no-js container">
+
+    <div class="col-sm-3">
+    <img src="{{ current_user.get_avatar }}" alt="{{ current_user.username }}"
+         title="{{ current_user.username }}"/>
+
+    <div>
+    {% ifequal current_user.id user.id %}
+        <a href="/accounts/edit/{{ current_user.id }}">编辑资料</a>
+        <a href="/accounts/changepasswd/{{ current_user.id }}">修改密码</a>
+    {% endifequal %}
+    </div>
+
+    <div>
+    <p>姓名: {{ current_user.username }}</p>
+    <p>性别: {{ current_user.get_gender_display }}</p>
+    <p>邮箱: {{ current_user.email }}</p>
+    <p>个性签名: {{ current_user.whats_up }}</p>
+    </div>
+
+
+    </div>
+
+    <div class="col-sm-9" id="tabs">
+
+        <ul class="menu0" id="menu0">
+            <li onclick="setTab(0,0)" class="hover">文章</li>
+            <li onclick="setTab(0,1)">评论</li>
+        </ul>
+
+        <div class="main" id="main0">
+
+        <div class="block">
+
+        <p><h2>已发表文章（共{{ user_articles | length }}篇）</h2></p>
+        {% ifequal user_articles|length 0 %}
+            <P>对不起，你还没有发表过任何文章哦</P>
+        {% else %}
+            <ul>
+            {% for user_article in user_articles %}
+                <li>
+                <a href="/articles/detail/{{ user_article.id }}">{{ user_article }}</a>&nbsp;&nbsp;
+                    {% ifequal current_user.id user.id %}
+                    <a href="/articles/delete/{{ user_article.id }}">删除</a>
+                    {% endifequal %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endifequal %}
+        </div>
+
+        <div>
+        <p><h2>已发表评论（共{{ user_comments|length }}条）</h2></p>
+        {% ifequal user_comments|length 0 %}
+            <P>对不起，你还没有发表过任何评论哦</P>
+        {% else %}
+            <ul>
+            {% for user_comment in user_comments %}
+                <li>
+                   <a href="/articles/detail/{{ user_comment.article.id }}/#comment_{{ user_comment.id }}">
+                       {{ user_comment.article.title }}</a>&nbsp;&nbsp;
+                    {% if current_user.id == user.id or user.id == comment.article.author.id %}
+                    <a href="/comments/delete/{{ user_comment.id }}">删除</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endifequal %}
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+    <script>
+    function setTab(m,n){
+    var tli=document.getElementById("menu"+m).getElementsByTagName("li");
+    var mli=document.getElementById("main"+m).getElementsByTagName("div");
+    for(i=0;i<tli.length;i++){
+    tli[i].className=i==n?"hover":"";
+    mli[i].style.display=i==n?"block":"none";
+    }
+    }
+    </script>
+{% endblock %}
+

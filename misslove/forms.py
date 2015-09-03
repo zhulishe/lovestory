@@ -62,4 +62,3 @@ class LoginForm(forms.Form):
 		return user
 
 
-

@@ -33,7 +33,7 @@ def user_logout(request):
 
 @login_required
 def user_info(request, user_id):
-	template_name = "misslove/userinfo.html"
+	template_name = "misslove/user_info.html"
 	current_user = get_object_or_404(NewUser, id = user_id)
 	user_articles = current_user.article_set.filter(status=1).order_by('created_time')[:9]
 	user_comments = current_user.comment_set.filter(status=1).order_by('comment_time')[:9]
@@ -106,3 +106,4 @@ def change_password(request, user_id):
 		form = ChangePasswordForm()
 	return render_to_response('misslove/change_password.html',{'form':form,'error':error},
 							  context_instance=RequestContext(request))
+

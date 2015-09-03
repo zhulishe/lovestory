@@ -1,0 +1,159 @@
+#avatar{
+    width: 50px;
+    height: 50px;
+    border-radius:50%;
+}
+
+#logo{
+    width: 60px;
+    height:60px;
+    border-radius:50%;
+    float: left;
+    margin:10px;
+}
+
+.logo_textAbove{
+    float: left;
+}
+
+.logo_textAbove a{
+    font-size: 30px;
+}
+
+.logo_textBelow{
+    float: left;
+    height: 20px;
+    font-size: x-small;
+    font-style: italic;
+    margin-bottom: 5px;
+    margin-left: 13px;
+    color: #A8A8A8;
+}
+
+.userInfo{
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.userInfo span{
+    margin-right: 20px;
+}
+
+nav form {
+    margin-top: 10px;
+}
+/*.form-group{
+    margin-bottom: 5px;
+}*/
+
+.articleTypeList{
+    margin-top: 10px;
+}
+
+/*.glyphicon{
+    margin-left: 50px;
+}*/
+
+body{
+    margin-top: 50px;
+    background-color: #DDDDDD;
+}
+
+.one-article{
+    background-color:#FFFFFF;
+}
+
+/*
+.page-header{
+    width: 70%;
+    margin-left: 20%;
+}
+
+.no-article{
+    width: 70%;
+    margin-left: 20%;
+}
+*/
+.body-part{
+    /* width: 70%; */
+    /* margin-left: 20%; */
+}
+
+.mynav{
+    background-color:#FFFFFF;
+}
+
+
+/**************基础页面(base.html)*********************/
+.to-top {
+    display: none;
+    padding: 10px 25px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f50;
+}
+
+#messages {
+    width: 50%;
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    box-shadow: 3px 4px 10px;
+}
+
+
+/**************用户注册页面(user_signup.html)*****************/
+.signup-input {
+    width: 30%;
+    /* margin: 0; */
+    margin: 0 10px;
+    display: initial;
+}
+.signup-label {
+    width: 8%;
+    font-size: 18px;
+    font-weight: normal;
+}
+.signup-help-span {
+    display: initial;
+}
+.signup-error-list {
+    color: red;
+    list-style-type: circle;
+}
+
+/*************用户资料页面(user_info.html)****************/
+#tabs {
+    border: 1px solid #cbcbcb;
+    background-color: #f2f6fb;
+    padding: 0;
+    margin-top: 20px
+}
+#tabs #menu0 {
+    list-style:none;
+    padding: 0;
+}
+#tabs .menu0 li {
+    display:block;
+    float: left;
+    padding: 4px 0;
+    width:50%;
+    text-align: center;
+    cursor:pointer;
+    background: #FFFFff;
+}
+#tabs .menu0 li.hover {
+    background: #f2f6fb;
+}
+#tabs .main {
+    clear:both;
+    padding:8px;
+}
+#tabs #main0 div {
+    display: none;
+}
+#tabs #main0 div.block {
+    display: block;
+}
