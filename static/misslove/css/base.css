@@ -61,6 +61,8 @@ body{
 
 .one-article{
     background-color:#FFFFFF;
+    padding: 15px;
+    margin-top: 15px;
 }
 
 /*
@@ -76,9 +78,14 @@ body{
 */
 .body-part{
     width: 70%;
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .mynav{
     background-color:#FFFFFF;
+}
+
+#avatar_detail{
+    width: 25px;
+    height: 25px;
 }

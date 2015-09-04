@@ -6,18 +6,15 @@
 {% block title %}{{ article }}{% endblock %}
 
 {% block content %}
-
-
     <div>
-
-
         <div>
             <h2>{{ article.title }}</h2>
 
-            <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
-            <P><a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a></p>
-
-            <p>{{ article.created_time }}</p>
+           <p>
+               <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
+               <a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a>
+               {{ article.created_time }}
+           </p>
             <div>
             {{ article.text | safe }}
             </div>
