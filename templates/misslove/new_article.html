@@ -1,9 +1,11 @@
 {% extends "misslove/base.html" %}
 {% block title %}新建文章{% endblock %}
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
+    <div class="article-edit">
+     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
-    <button type="submit">保存</button>
+    <button type="submit" class="btn btn-default">保存</button>
     </form>
+    </div>
 {% endblock %}

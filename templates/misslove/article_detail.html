@@ -1,13 +1,12 @@
 {% extends "misslove/base.html" %}
 {% load staticfiles %}
 
-    {% block extracss %} <link href="{% static 'misslove/css/article_detail.css' %}" rel="stylesheet" /> {% endblock %}
-
 {% block title %}{{ article }}{% endblock %}
 
 {% block content %}
     <div>
-        <div>
+    <!--文章内容-->
+        <div class="article-box">
             <h2>{{ article.title }}</h2>
 
            <p>
@@ -22,25 +21,30 @@
                 <img src="{{ article.image.url }}" alt="{{ article }}" title="{{ article }}"/>
             {% endif %}
             {% if article.author.id == user.id %}
+                <div>
                 <a href="/articles/edit/{{ article.id }}">编辑文章</a>
                 <a href="/articles/delete/{{ article.id }}">删除</a>
+                </div>
             {% endif %}
         </div>
     </div>
 
-    <div id="comment_box">
-    <h2>评论区</h2>
+    <!--文章评论-->
+    <div class="comment-box">
+    <h4>评论区</h4>
     {% for comment in comments %}
         <hr/>
         <div id="comment_{{ comment.id }}">
-        <p>#{{ forloop.counter }}</p>
-        <a href="/accounts/info/{{ comment.author.id }}">{{ comment.author }}</a>
-        <p>{{ comment.comment_time }}</p>
+       <!-- <p>#{{ forloop.counter }}</p> -->
+            <p><a href="/accounts/info/{{ comment.author.id }}">{{ comment.author }}</a>
+        {{ comment.comment_time }}</p>
         <div>{{ comment.content | safe}}</div>
 
         {% if user.id == article.author.id or user.id == comment.author.id %}
+            <div>
             <a href="/comments/edit/{{ comment.id }}">编辑评论</a>
             <a href="/comments/delete/{{ comment.id }}">删除</a>
+            </div>
         {% endif %}
         </div>
     {% endfor %}
@@ -48,11 +52,12 @@
 
     <div>
     {% if user.is_authenticated %}
-        <form action="/comments/add/{{ article.id }}/" method="POST">
+
+        <form class="comment-add" action="/comments/add/{{ article.id }}/" method="POST">
             {% csrf_token %}
-            <label for="content">评论内容：</label>
+            <label for="content">添加评论：</label>
             <textarea rows="6" name="content" placeholder="请在此输入评论"></textarea>
-            <input type="submit" name="submit" value="提交"/>
+            <input type="submit" name="submit" value="提交" class="btn btn-default"/>
         </form>
     {% else %}
         <p>登录才可以评论哦</p>
