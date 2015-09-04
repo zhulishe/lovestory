@@ -83,7 +83,6 @@ body{
     background-color:#FFFFFF;
 }
 
-
 /**************基础页面(base.html)*********************/
 .to-top {
     display: none;
@@ -102,6 +101,11 @@ body{
     left: 25%;
     box-shadow: 3px 4px 10px;
 }
+
+.base-footer {
+}
+
+
 
 
 /**************用户注册页面(user_signup.html)*****************/
@@ -156,4 +160,25 @@ body{
 }
 #tabs #main0 div.block {
     display: block;
+}
+
+/**************首页(homepage.html)******************/
+.hp-slide {
+    width: 100%;
+    height: 50%;
+}
+
+#hp-container {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#hp-container .col-md-3 div{
+    text-align: center;
+    background-color: white;
+}
+
+#hp-container div img {
+    display: block;
+    margin: auto;
 }

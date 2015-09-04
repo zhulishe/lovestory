@@ -86,12 +86,13 @@
 
 
 <!--中间部分-->
-<div class="container" style="padding-top: 50px">
-    <div class="body-part">
+<div style="margin-top: 50px">
+    {% block slide %}
+    {% endblock %}
+    <div class="body-part container">
         {% block content %}
         {% endblock %}
     </div>
-
 </div>
 
 
@@ -110,12 +111,6 @@
 
 <!--回到顶部-->
 <a class="to-top">TOP</a>
-
-
-<!--底部基本信息-->
-<div>
-
-</div>
 
 
 <script src="{% static 'bootstrap/js/jquery-1.11.3.min.js' %}"></script>
@@ -138,7 +133,17 @@ $(function() {
         language: "zh_CN"
     });
 </script>
+<script type="text/javascript" src="{% static 'misslove/js/misslove.js' %}"></script>
 {% block extrajs %}{% endblock %}
 
+
+<!--底部基本信息-->
+<footer class="base-footer">
+    <div>
+        <p>Copyright©2015 All Rights Reserved</p>
+    </div>
+</footer>
+
 </body>
+
 </html>
