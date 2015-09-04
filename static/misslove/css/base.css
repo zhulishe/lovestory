@@ -125,6 +125,7 @@ body{
     z-index: 100;
 }
 
+
 #wrapper{
     position: relative;   /*重要！保证footer是相对于wapper位置绝对*/
     height: auto;          /* 保证页面能撑开浏览器高度时显示正常*/
@@ -144,6 +145,7 @@ body{
     padding-bottom: 75px; /*重要！给footer预留的空间*/
     min-height: 800px;
 }
+
 
 /**************用户注册页面(user_signup.html)*****************/
 .signup-page {
@@ -402,4 +404,11 @@ body{
     background-color: #FFFFFF;
     padding: 40px;
     margin-top: 50px;
+}
+
+
+.carousel-caption{
+    margin-right: 50%;
+    margin-bottom: 8%;
+    width:25%;
 }

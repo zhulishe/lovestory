@@ -52,6 +52,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+/templates/misslove/homepage.html
 
 # Sphinx documentation
 docs/_build/
