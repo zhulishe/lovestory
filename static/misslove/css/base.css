@@ -126,8 +126,35 @@ body{
     box-shadow: 3px 4px 10px;
 }
 
-.base-footer {
+.main-content{
+    /*
+    position: relative;
+    min-height: 100%;
+    */
+    height: auto;
+    min-height: 100%;
+
+    padding-bottom: 50px;
+
 }
+
+.base-footer {
+    position: relative;
+   /* margin-top: -50px;*/
+    height: 50px;
+   /* clear: both;*/
+    width: 100%;
+    background-color: #080808;
+    text-align: center;
+    bottom: 0;
+}
+
+/*
+.main-content{
+    padding-bottom: 50px;
+}
+*/
+
 
 
 

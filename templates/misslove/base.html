@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
+
 <head>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
     maximum-scale=1.0, user-scalable=no">
@@ -16,7 +20,13 @@
 </head>
 
 <body>
+
+<div class="wrap">
+
+
+
 <div>
+
 <nav class="navbar navbar-default navbar-fixed-top mynav" role="navigation">
     <!--Logo-->
     <div class="navbar-header">
@@ -64,7 +74,7 @@
     </div>
 
     <!--搜索框-->
-
+3
     {% if user.is_authenticated %}
         <form action="/search" method="get" class="navbar-form navbar-left" role="search">
             <div class="form-group">
@@ -86,7 +96,7 @@
 
 
 <!--中间部分-->
-<div>
+<div class="main-content">
     {% block slide %}
     {% endblock %}
     <div class="body-part container">
@@ -137,12 +147,15 @@ $(function() {
 {% block extrajs %}{% endblock %}
 
 
+</div> <!--class wrap-->
 <!--底部基本信息-->
-<footer class="base-footer">
-    <div>
+
+    <div class="base-footer">
         <p>Copyright©2015 All Rights Reserved</p>
     </div>
-</footer>
+
+
+
 
 </body>
 
