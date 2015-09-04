@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
     maximum-scale=1.0, user-scalable=no">
 
-
-    <script type="text/javascript" src="{% static 'tinymce/tinymce.min.js' %}"></script>
-    <script type="text/javascript">
-        tinymce.init({
-            selector: "textarea",
-            language: "zh_CN"
-        });
-    </script>
-
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+
    <link href="{% static 'misslove/css/base.css' %}" rel="stylesheet" type="text/css"/>
+
     {% block extracss %}{% endblock %}
 
     <title>{% block title %}{% endblock %} | 爱情博物馆</title>
@@ -93,23 +86,64 @@
 
 
 <!--中间部分-->
-<div class="container" style="padding-top: 50px">
-    <div class="body-part">
+<div>
+    {% block slide %}
+    {% endblock %}
+    <div class="body-part container">
         {% block content %}
         {% endblock %}
     </div>
-
 </div>
 
-<!--底部基本信息-->
-<div>
 
-</div>
+<!--信息提醒部分-->
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissable" id="messages">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <p>{{ message }}</p>
+    </div>
+    {% endfor %}
+{% endif %}
+
+
+<!--回到顶部-->
+<a class="to-top">TOP</a>
 
 
 <script src="{% static 'bootstrap/js/jquery-1.11.3.min.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'misslove/js/toTop/jquery.toTop.min.js' %}"></script>
+<script>
+$(function() {
+	$('.to-top').toTop({
+        right: 30,
+        bottom: 40,
+        offset: 300
+    });
+    $("#messages").delay(2000).hide("slow")
+});
+</script>
+<script type="text/javascript" src="{% static 'tinymce/tinymce.min.js' %}"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        language: "zh_CN"
+    });
+</script>
+<script type="text/javascript" src="{% static 'misslove/js/misslove.js' %}"></script>
 {% block extrajs %}{% endblock %}
 
+
+<!--底部基本信息-->
+<footer class="base-footer">
+    <div>
+        <p>Copyright©2015 All Rights Reserved</p>
+    </div>
+</footer>
+
 </body>
+
 </html>

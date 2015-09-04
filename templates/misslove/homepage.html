@@ -1,15 +1,11 @@
 {% extends "misslove/base.html" %}
+{% load staticfiles %}
 
 {% block title %}首页{% endblock %}
 
-{% block content %}
+{% block slide %}
 
-
-    <div>
-    <p class="index">Whisper you love stories here</p>
-    </div>
-
-<div id="myCarousel" class="carousel slide">
+<div id="myCarousel" class="carousel slide hp-slide">
    <!-- 轮播（Carousel）指标 -->
    <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -38,22 +34,53 @@
    <a class="carousel-control right" href="#myCarousel"
       data-slide="next">&rsaquo;</a>
 </div>
+{% endblock %}
 
 
-<div>
-   <!--
-   <div>
-        <a href="{% url 'new_article' %}">New Article</a>
+{% block content %}
+
+    <div class="row" id="hp-container">
+        <div class="col-md-3">
+            <div>
+            <img src="{%static 'misslove/img/logo.jpg' %}" class="img-circle" />
+            <a href="/articles/catalog/1">失恋</a>
+                <p>LIFE IF SHORT, PLAY MORE</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div>
+            <img src="{%static 'misslove/img/logo.jpg' %}" class="img-circle" />
+            <a href="/articles/catalog/2">暗恋</a>
+                <p>LIFE IF SHORT, PLAY MORE</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div>
+            <img src="{%static 'misslove/img/logo.jpg' %}" class="img-circle" />
+            <a href="/articles/catalog/3">异地恋</a>
+                <p>LIFE IF SHORT, PLAY MORE</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div>
+            <img src="{%static 'misslove/img/logo.jpg' %}" class="img-circle" />
+            <a href="/articles/catalog/4">爱恋</a>
+                <p>LIFE IF SHORT, PLAY MORE</p>
+            </div>
+        </div>
     </div>
-    -->
-    <!--
+
+    <hr/>
+
     <div>
-        <a href="/articles/catalog/1">失恋</a>
-        <a href="/articles/catalog/2">暗恋</a>
-        <a href="/articles/catalog/3">异地恋</a>
-        <a href="/articles/catalog/4">爱恋</a>
+    左边显示板块百分比,右边显示用户状态百分比
     </div>
-    -->
-</div>
+
+    <hr/>
+
+    <div>
+    其他的信息123
+    </div>
+
 
 {% endblock %}
