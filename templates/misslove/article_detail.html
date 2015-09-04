@@ -1,8 +1,6 @@
 {% extends "misslove/base.html" %}
 {% load staticfiles %}
 
-    {% block extracss %} <link href="{% static 'misslove/css/article_detail.css' %}" rel="stylesheet" /> {% endblock %}
-
 {% block title %}{{ article }}{% endblock %}
 
 {% block content %}
@@ -23,8 +21,10 @@
                 <img src="{{ article.image.url }}" alt="{{ article }}" title="{{ article }}"/>
             {% endif %}
             {% if article.author.id == user.id %}
+                <div>
                 <a href="/articles/edit/{{ article.id }}">编辑文章</a>
                 <a href="/articles/delete/{{ article.id }}">删除</a>
+                </div>
             {% endif %}
         </div>
     </div>
@@ -41,8 +41,10 @@
         <div>{{ comment.content | safe}}</div>
 
         {% if user.id == article.author.id or user.id == comment.author.id %}
+            <div>
             <a href="/comments/edit/{{ comment.id }}">编辑评论</a>
             <a href="/comments/delete/{{ comment.id }}">删除</a>
+            </div>
         {% endif %}
         </div>
     {% endfor %}
@@ -50,11 +52,12 @@
 
     <div>
     {% if user.is_authenticated %}
+
         <form class="comment-add" action="/comments/add/{{ article.id }}/" method="POST">
             {% csrf_token %}
             <label for="content">添加评论：</label>
             <textarea rows="6" name="content" placeholder="请在此输入评论"></textarea>
-            <input type="submit" name="submit" value="提交"/>
+            <input type="submit" name="submit" value="提交" class="btn btn-default"/>
         </form>
     {% else %}
         <p>登录才可以评论哦</p>
