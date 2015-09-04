@@ -61,15 +61,23 @@ body{
 
 .one-article{
     background-color:#FFFFFF;
+    padding: 15px;
+    margin-top: 15px;
 }
 
 .body-part{
-    /* width: 70%; */
-    /* margin-left: 20%; */
+    width: 70%;
+    margin-left: 15%;
 }
 
 .mynav{
     background-color:#FFFFFF;
+}
+
+
+#avatar_detail{
+    width: 25px;
+    height: 25px;
 }
 
 /**************基础页面(base.html)*********************/
@@ -98,14 +106,35 @@ body{
 
 
 /**************用户注册页面(user_signup.html)*****************/
+.signup-page {
+    margin: 100px auto 0 auto;
+    color: white;
+}
+
+.signup-page input {
+    margin-top: px;
+}
+
+.signup-page h1 {
+    font-size: 30px;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0,0,0,.2);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.signup-page button {
+    position: absolute;
+    right: 14%;
+}
 .signup-input {
-    width: 30%;
+    width: 70%;
     /* margin: 0; */
     margin: 0 10px;
     display: initial;
 }
 .signup-label {
-    width: 8%;
+    width: 15%;
     font-size: 18px;
     font-weight: normal;
 }
@@ -122,7 +151,6 @@ body{
     border: 1px solid #cbcbcb;
     background-color: #f2f6fb;
     padding: 0;
-    margin-top: 20px
 }
 #tabs #menu0 {
     list-style:none;
@@ -151,6 +179,41 @@ body{
     display: block;
 }
 
+.user_info {
+    margin-top: 50px;
+}
+
+.user_info div img{
+    width: 140px;
+    height: 140px;
+}
+
+#user_info_left div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#user_info_left span {
+    font-weight:bold;
+}
+
+.avatar {
+  width: 56px;
+  /*height: 90px;*/
+  -webkit-border-radius: 100%;
+  -webkit-transition: -webkit-transform 0.8s ease-out;
+  -moz-transition: -moz-transform 0.8s ease-out;
+  -o-transition: -o-transform 0.8s ease-out;
+  -ms-transition: -ms-transform 0.8s ease-out;
+}
+.avatar:hover {
+  -webkit-transform: rotateZ(360deg);
+  -moz-transform: rotateZ(360deg);
+  -o-transform: rotateZ(360deg);
+  -ms-transform: rotateZ(360deg);
+  transform: rotateZ(360deg);
+}
+
 /**************首页(homepage.html)******************/
 .hp-slide {
     width: 100%;
@@ -171,3 +234,4 @@ body{
     display: block;
     margin: auto;
 }
+

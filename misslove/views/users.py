@@ -9,6 +9,7 @@ from django.contrib import messages,auth
 
 
 def user_login(request):
+	template_name= 'misslove/user_login.html'
 	if request.method == "POST":
 		form = LoginForm(request.POST)
 		if form.is_valid():
@@ -19,7 +20,7 @@ def user_login(request):
 				return redirect('homepage')
 	else:
 		form = LoginForm()
-	return render_to_response('misslove/user_login.html',
+	return render_to_response(template_name,
 							  {'form': form,},
 							  context_instance=RequestContext(request))
 
