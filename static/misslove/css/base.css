@@ -358,3 +358,10 @@ body{
     padding: 40px;
     margin-top: 50px;
 }
+
+
+.carousel-caption{
+    margin-right: 50%;
+    margin-bottom: 8%;
+    width:25%;
+}
