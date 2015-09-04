@@ -85,10 +85,26 @@ body{
     background-color:#FFFFFF;
 }
 
-
+/**************文章详情页(article_detail.html)*********************/
 #avatar_detail{
     width: 25px;
     height: 25px;
+}
+
+.article-box{
+    background-color:#FFFFFF;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.comment-box{
+    background-color:#FFFFFF;
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.comment-add{
+    margin-top: 30px;
 }
 
 /**************基础页面(base.html)*********************/
@@ -191,3 +207,58 @@ body{
     margin: auto;
 }
 
+/*********************编辑评论页面（edit_comment.html)***********************/
+.comment-edit{
+    margin-top: 50px;
+}
+
+/**************************编辑文章（new_artilce.html)***********************************/
+.article-edit{
+    margin-top: 50px;
+}
+
+/***************************编辑用户信息（infoedit.html)*********************************/
+.avatar-edit{
+    width: 30px;
+    height: 30px;
+}
+
+.info-edit{
+    background-color: #FFFFFF;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.info-edit h3{
+    text-align: center;
+}
+
+/*************************修改密码（change_password.html)*************************************/
+.change-password{
+    background-color: #FFFFFF;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.change-password h3{
+    text-align: center;
+}
+
+.change-password input{
+    margin-top: 5px;
+}
+
+.change-password label{
+    margin-top: 10px;
+}
+
+.change-password button{
+    margin-top: 10px;
+}
+
+/******************搜索结果页面(search.html)***************************/
+.search-body{
+    background-color: #FFFFFF;
+    padding: 40px;
+    margin-top: 50px;
+}
