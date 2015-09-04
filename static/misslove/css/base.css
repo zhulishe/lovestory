@@ -55,7 +55,7 @@ nav form {
 }*/
 
 body{
-    margin-top: 50px;
+    margin-top: 75px;
     background-color: #DDDDDD;
 }
 
@@ -63,17 +63,6 @@ body{
     background-color:#FFFFFF;
 }
 
-/*
-.page-header{
-    width: 70%;
-    margin-left: 20%;
-}
-
-.no-article{
-    width: 70%;
-    margin-left: 20%;
-}
-*/
 .body-part{
     /* width: 70%; */
     /* margin-left: 20%; */
