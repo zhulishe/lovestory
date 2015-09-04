@@ -11,31 +11,27 @@
 
 {% block content %}
 
-<div class="row no-js user_info">
+<div class="row no-js">
 
-    <div class="col-sm-4" id = "user_info_left">
-        <div>
+    <div id="user-info-top">
+        <img src="{% static 'misslove/img/hp1.jpg'%}" id="user-info-bg">
+        <div id = "user-info-detail">
             <img src="{{ current_user.get_avatar }}" alt="{{ current_user.username }}"
                  title="{{ current_user.username }}" class="img-thumbnail img-circle avatar"/>
-
-            <div>
-            <p><span class="glyphicon glyphicon-user"></span>&nbsp;<span>姓名:</span>&nbsp;{{ current_user.username }}</p>
-            <p><span class="glyphicon glyphicon-heart"></span>&nbsp;<span>性别:</span>&nbsp;{{ current_user.get_gender_display }}</p>
-            <p><span class="glyphicon glyphicon-envelope"></span>&nbsp;<span>邮箱:</span>&nbsp;{{ current_user.email }}</p>
-            <p><span class="glyphicon glyphicon-star"></span>&nbsp;<span>签名:</span>&nbsp;{{ current_user.whats_up }}</p>
-            </div>
-
-            <div>
+            <p id="user-info-username">{{ current_user.username }}</p>
+            <p>{{ current_user.whats_up }}</p>
+            <p><span class="glyphicon glyphicon-user"></span>&nbsp;<span>{{ current_user.get_gender_display }}</span>
+            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope"></span>&nbsp;<span>{{ current_user.email }}</span></p>
+        </div>
+        <div id = "user-info-edit-link">
             {% ifequal current_user.id user.id %}
-                <a href="/accounts/edit/{{ current_user.id }}">编辑资料</a>
-                <a href="/accounts/changepasswd/{{ current_user.id }}">修改密码</a>
+                <p><a href="/accounts/edit/{{ current_user.id }}">编辑资料</a></p>
+                <p><a href="/accounts/changepasswd/{{ current_user.id }}">修改密码</a></p>
             {% endifequal %}
-            </div>
-
         </div>
     </div>
 
-    <div class="col-sm-8" id="tabs">
+    <div id="tabs">
 
         <ul class="menu0" id="menu0">
             <li onclick="setTab(0,0)" class="hover">文章（共{{ user_articles | length }}篇）</li>

@@ -32,6 +32,9 @@
     <!--文章评论-->
     <div class="comment-box">
     <h4>评论区</h4>
+    {% if comments|length == 0%}
+        <p>暂时没有评论哦,赶紧添加吧～</p>
+    {% else %}
     {% for comment in comments %}
         <hr/>
         <div id="comment_{{ comment.id }}">
@@ -48,6 +51,7 @@
         {% endif %}
         </div>
     {% endfor %}
+    {% endif %}
     </div>
 
     <div>

@@ -68,6 +68,7 @@ body{
 .body-part{
     width: 70%;
     margin-left: 15%;
+    font-size: 16px;
 }
 
 .mynav{
@@ -107,20 +108,42 @@ body{
     background-color: #f50;
 }
 
+.to-top:hover{
+    text-decoration: none;
+    color: white;
+}
+
+
+
 #messages {
     width: 50%;
     text-align: center;
     position: absolute;
-    top: 40%;
+    top: 15%;
     left: 25%;
     box-shadow: 3px 4px 10px;
+    z-index: 100;
 }
 
-.base-footer {
+#wrapper{
+    position: relative;   /*重要！保证footer是相对于wapper位置绝对*/
+    height: auto;          /* 保证页面能撑开浏览器高度时显示正常*/
+    min-height: 100%  /* IE6不支持，IE6要单独配置*/
 }
-
-
-
+#footer{
+    position: absolute;
+    bottom: 0;/* 关键 */
+    left:0;/* IE下一定要记得 */
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    height: 60px;
+    color: white;
+}
+#main-content{
+    padding-bottom: 75px; /*重要！给footer预留的空间*/
+    min-height: 800px;
+}
 
 /**************用户注册页面(user_signup.html)*****************/
 .signup-page {
@@ -168,6 +191,8 @@ body{
     border: 1px solid #cbcbcb;
     background-color: #f2f6fb;
     padding: 0;
+    position:relative;
+    margin-top:300px;
 }
 #tabs #menu0 {
     list-style:none;
@@ -196,32 +221,18 @@ body{
     display: block;
 }
 
-.user_info {
-    margin-top: 50px;
-}
-
-.user_info div img{
-    width: 140px;
-    height: 140px;
-}
-
-#user_info_left div {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#user_info_left span {
-    font-weight:bold;
-}
-
 .avatar {
-  width: 56px;
+  /* width: 56px; */
   /*height: 90px;*/
   -webkit-border-radius: 100%;
-  -webkit-transition: -webkit-transform 0.8s ease-out;
-  -moz-transition: -moz-transform 0.8s ease-out;
-  -o-transition: -o-transform 0.8s ease-out;
-  -ms-transition: -ms-transform 0.8s ease-out;
+  -webkit-transition: 
+  -webkit-transform 0.8s ease-out;
+  -moz-transition: 
+  -moz-transform 0.8s ease-out;
+  -o-transition: 
+  -o-transform 0.8s ease-out;
+  -ms-transition: 
+  -ms-transform 0.8s ease-out;
 }
 .avatar:hover {
   -webkit-transform: rotateZ(360deg);
@@ -229,6 +240,56 @@ body{
   -o-transform: rotateZ(360deg);
   -ms-transform: rotateZ(360deg);
   transform: rotateZ(360deg);
+}
+
+#user-info-top {
+    position:relative;
+}
+
+#user-info-bg {
+    width: 100%;
+    height: 280px;
+    margin-top: 30px;
+    position: absolute;
+    z-index: 0;
+}
+
+#user-info-detail {
+  position:absolute;
+  z-index:1;
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+  color: white;
+  margin-top: 60px;
+}
+
+#user-info-detail img {
+    width: 120px;
+    height: 120px;
+}
+
+#user-info-username {
+    text-shadow: 2px 2px 5px #000;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#user-info-edit-link {
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    z-index:2;
+    text-decoration: none;
+    color: white;
+}
+
+#user-info-edit-link p {
+    margin: 0;
+}
+
+#user-info-edit-link a {
+    text-decoration:none;
 }
 
 /**************首页(homepage.html)******************/
@@ -244,12 +305,23 @@ body{
 
 #hp-container .col-md-3 div{
     text-align: center;
-    background-color: white;
+    border: 1px solid white;
+    padding: 2px;
+}
+
+#hp-container .col-md-3 div a {
+    font-size: 25px;    
+}
+
+#hp-container .col-md-3 div a:hover {
+    text-decoration: none;
+    
 }
 
 #hp-container div img {
     display: block;
     margin: auto;
+    width: 100%;
 }
 
 

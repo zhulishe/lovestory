@@ -3,9 +3,22 @@
  */
 $(document).ready(function() {
 
+    /**************基础页面(base.html)******************/
+	$('.to-top').toTop({
+        right: 30,
+        bottom: 70,
+        offset: 300
+    });
+    $("#messages").delay(2000).hide("slow")
+
+    tinymce.init({
+        selector: "textarea",
+        language: "zh_CN"
+    });
+
+
     /*************首页(homepage.html)*****************/
     $(".carousel").carousel({interval: 3000}).carousel('cycle');
-
 
 
     /*************新建文章(new_article.html)*******************/
@@ -21,4 +34,6 @@ $(document).ready(function() {
 
 
 
+
 });
+

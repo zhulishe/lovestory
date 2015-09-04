@@ -38,19 +38,34 @@
     {% endifequal %}
 
     {% ifnotequal articles.paginator.num_pages 1 %}
-        {% if articles.has_previous %}
-        <a href="?page={{ articles.previous_page_number }}">上一页</a>
-        {% endif %}
+    <nav>
+        <ul class="pagination">
+
+        <li {% if not articles.has_previous %}class="disabled"{% endif %}>
+            <a {% if articles.has_previous %}href="?page={{ articles.previous_page_number }}"
+               {% endif %}
+               aria-label="上一页">
+            <span aria-hidden="true">&laquo;</span></a>
+        </li>
+
         {% for page_number in articles.paginator.page_range %}
             {% ifequal page_number articles.number %}
-                {{ page_number }}
+                <li class="active">
+                    <a href="#">{{ page_number }}<span class="sr-only">(current)</span></a>
+                </li>
             {% else %}
-                <a href="?page={{ page_number }}">{{ page_number }}</a>
+                <li><a href="?page={{ page_number }}">{{ page_number }}</a></li>
             {% endifequal %}
         {% endfor %}
-        {% if articles.has_next %}
-        <a href="?page={{ articles.next_page_number }}">下一页</a>
-        {% endif %}
+
+        <li {% if not articles.has_next %}class="disabled"{% endif %}>
+            <a {% if articles.has_next %}href="?page={{ articles.next_page_number }}"
+               {% endif %}aria-label="下一页">
+            <span aria-hidden="true">&raquo;</span></a>
+        </li>
+
+        </ul>
+    </nav>
     {% endifnotequal %}
 
 {% endblock %}

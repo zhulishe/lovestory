@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<div id = "wrapper">
 <div>
 <nav class="navbar navbar-default navbar-fixed-top mynav" role="navigation">
     <!--Logo-->
@@ -86,7 +87,7 @@
 
 
 <!--中间部分-->
-<div>
+<div id="main-content">
     {% block slide %}
     {% endblock %}
     <div class="body-part container">
@@ -110,39 +111,26 @@
 
 
 <!--回到顶部-->
-<a class="to-top">TOP</a>
+<div>
+    <a class="to-top">TOP</a>
+</div>
 
+
+<!--底部基本信息-->
+<div id="footer">
+    <p>Copyright©2015 All Rights Reserved</p>
+    <p>Powerby&nbsp;<a href="https://github.com/zhulishe">Lisa</a>
+        &amp;&nbsp;<a href="https://github.com/chenyvehtung">Donald</a></p>
+</div>
+
+</div>
 
 <script src="{% static 'bootstrap/js/jquery-1.11.3.min.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'misslove/js/toTop/jquery.toTop.min.js' %}"></script>
-<script>
-$(function() {
-	$('.to-top').toTop({
-        right: 30,
-        bottom: 40,
-        offset: 300
-    });
-    $("#messages").delay(2000).hide("slow")
-});
-</script>
 <script type="text/javascript" src="{% static 'tinymce/tinymce.min.js' %}"></script>
-<script type="text/javascript">
-    tinymce.init({
-        selector: "textarea",
-        language: "zh_CN"
-    });
-</script>
 <script type="text/javascript" src="{% static 'misslove/js/misslove.js' %}"></script>
 {% block extrajs %}{% endblock %}
-
-
-<!--底部基本信息-->
-<footer class="base-footer">
-    <div>
-        <p>Copyright©2015 All Rights Reserved</p>
-    </div>
-</footer>
 
 </body>
 
