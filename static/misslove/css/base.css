@@ -279,6 +279,10 @@ body{
   margin-top: 60px;
 }
 
+#user-info-detail p {
+    color:#F53F56;
+}
+
 #user-info-detail img {
     width: 120px;
     height: 120px;
