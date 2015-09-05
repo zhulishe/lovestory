@@ -42,11 +42,13 @@ $(document).ready(function() {
                 });
         });
 
+        $("#hp-container .col-md-3 div").click(function(){
+            var temp=$(this).parent().index()+1;
+            location.href="/articles/catalog/"+temp;
+        });
+
 
     /*************新建文章(new_article.html)*******************/
-    $(".article-edit").find("#id_title").prev().text("标题: ");
-    $(".article-edit").find("#id_title").next().text("文章内容: ");
-    $(".article-edit").find("#id_choose_type").prev().text("板块类型: ");
     $(".article-edit").find("input").addClass("form-control");
     $(".article-edit").find("select").addClass("form-control");
 

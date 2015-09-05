@@ -19,12 +19,12 @@ class Article(models.Model):
 		(4, u'爱恋'),
 	)
 	author = models.ForeignKey(settings.AUTH_USER_MODEL)
-	title = models.CharField(max_length=200)
-	text = models.TextField()
-	choose_type = models.IntegerField(choices=article_type)
-	created_time = models.DateTimeField(default=timezone.now, editable=False)
+	title = models.CharField(u'文章标题',max_length=200)
+	text = models.TextField(u'文章内容')
+	choose_type = models.IntegerField(u'板块选择',choices=article_type, default=article_type[0][0])
+	created_time = models.DateTimeField(u'发布时间',default=timezone.now, editable=False)
 	# article valid or invalid
-	status = models.IntegerField(default=1)
+	status = models.IntegerField(u'状态',default=1)
 	image = models.ImageField(u'文章图片',upload_to='images/articleimg', blank=True)
 
 	def __unicode__(self):

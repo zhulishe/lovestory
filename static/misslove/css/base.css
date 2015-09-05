@@ -339,21 +339,17 @@ body{
     text-align: center;
     border: 1px solid white;
     padding: 2px;
-}
-
-#hp-container .col-md-3 div a {
-    font-size: 25px;    
-}
-
-#hp-container .col-md-3 div a:hover {
-    text-decoration: none;
-    
+    cursor: pointer;
 }
 
 #hp-container div img {
     display: block;
     margin: auto;
     width: 100%;
+}
+
+#hp-container .col-md-3 .div-title {
+    font-size: 25px;
 }
 
 .misslove-pie-chart div {
@@ -446,7 +442,7 @@ filter: gray;
 
 .article-edit label {
     width: 10%;
-    font-size: 20px;
+    /*font-size: 20px;*/
     margin-top: 15px;
 }
 
@@ -459,6 +455,7 @@ filter: gray;
 .article-edit button {
     margin-top: 10px;
 }
+
 
 /***************************编辑用户信息（infoedit.html)*********************************/
 .avatar-edit{
@@ -542,8 +539,30 @@ body a:hover {
     border: #F53F56;
 }
 
+.errorlist {
+    color: red;
+}
 
 /****************article-catalog.html********************/
 .article-meta{
         color: #959595;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: #F53F56;
+}
+
+.pagination>li>a:hover {
+    color: #F53F56;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    background-color: #F53F56;
+    border-color: #F53F56;
 }

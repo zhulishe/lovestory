@@ -79,28 +79,28 @@
         <div class="col-md-3">
             <div>
             <img src="{%static 'misslove/img/block.png' %}"  class="gray"/>
-            <a href="/articles/catalog/1">失恋</a>
+                <p class="div-title">失恋</p>
                 <p>LIFE IF SHORT, PLAY MORE</p>
             </div>
         </div>
         <div class="col-md-3">
             <div>
             <img src="{%static 'misslove/img/block.png' %}" class="gray"/>
-            <a href="/articles/catalog/2">暗恋</a>
+                <p class="div-title">暗恋</p>
                 <p>LIFE IF SHORT, PLAY MORE</p>
             </div>
         </div>
         <div class="col-md-3">
             <div>
             <img src="{%static 'misslove/img/block.png' %}"  class="gray"/>
-            <a href="/articles/catalog/3">异地恋</a>
+                <p class="div-title">异地恋</p>
                 <p>LIFE IF SHORT, PLAY MORE</p>
             </div>
         </div>
         <div class="col-md-3">
             <div>
             <img src="{%static 'misslove/img/block.png' %}" class="gray"/>
-            <a href="/articles/catalog/4">爱恋</a>
+                <p class="div-title">爱恋</p>
                 <p>LIFE IF SHORT, PLAY MORE</p>
             </div>
         </div>
@@ -130,7 +130,8 @@ $(function () {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
-            plotShadow: false
+            plotShadow: false,
+            backgroundColor: 'transparent'
         },
         title: {
             text: '各板块类型占有比例'
@@ -166,6 +167,12 @@ $(function () {
                     selected: true
                 },
                 ['爱恋',    {{ article_data.3 }}]
+            ],
+            colors: [
+                    '#59AFFF',
+                    '#fc8e78',
+                    '#FFBC09',
+                    '#69EC64'
             ]
         }]
     });
@@ -174,7 +181,8 @@ $(function () {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
-            plotShadow: false
+            plotShadow: false,
+            backgroundColor: 'transparent'
         },
         title: {
             text: '各用户类型占有比例'
@@ -210,6 +218,12 @@ $(function () {
                 ['暗恋',    {{ user_data.1 }}],
                 ['异地恋',     {{ user_data.2 }}],
                 ['爱恋',   {{ user_data.3 }}]
+            ],
+            colors: [
+                    '#59AFFF',
+                    '#fc8e78',
+                    '#FFBC09',
+                    '#69EC64'
             ]
         }]
     });
