@@ -9,11 +9,20 @@
         <div class="article-box">
             <h2>{{ article.title }}</h2>
 
-           <p>
+
+               <!--
                <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
-               <a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a>
-               {{ article.created_time }}
-           </p>
+                -->
+              <div class="article-meta">
+            <p>
+            <span class="author">
+                <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
+                <a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a>
+            </span> &bull;
+            <time class="post-date" datetime=" {{ article.created_time }}" title=" {{ article.created_time }}"> {{ article.created_time }}</time>
+        </p>
+        </div>
+
             <div>
             {{ article.text | safe }}
             </div>
@@ -22,8 +31,8 @@
             {% endif %}
             {% if article.author.id == user.id %}
                 <div>
-                <a href="/articles/edit/{{ article.id }}">编辑文章</a>
-                <a href="/articles/delete/{{ article.id }}">删除</a>
+                <a href="/articles/edit/{{ article.id }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="/articles/delete/{{ article.id }}"><span class="glyphicon glyphicon-trash"></span></a>
                 </div>
             {% endif %}
         </div>
@@ -39,14 +48,29 @@
         <hr/>
         <div id="comment_{{ comment.id }}">
        <!-- <p>#{{ forloop.counter }}</p> -->
+
+            <!--
             <p><a href="/accounts/info/{{ comment.author.id }}">{{ comment.author }}</a>
         {{ comment.comment_time }}</p>
+        -->
+
+              <div class="article-meta">
+            <p>
+            <span class="author">
+                <img id="avatar_detail" src="{{ comment.author.get_avatar }}" alt="{{ comment_author }}" title="{{ comment_author }}"/>
+                <a href="/accounts/info/{{ comment.author.id }}">{{ comment.author }}</a>
+            </span> &bull;
+            <time class="post-date" datetime=" {{ comment.comment_time }}" title=" {{ comment.comment_time }}"> {{ comment.comment_time }}</time>
+        </p>
+        </div>
+
+
         <div>{{ comment.content | safe}}</div>
 
         {% if user.id == article.author.id or user.id == comment.author.id %}
             <div>
-            <a href="/comments/edit/{{ comment.id }}">编辑评论</a>
-            <a href="/comments/delete/{{ comment.id }}">删除</a>
+            <a href="/comments/edit/{{ comment.id }}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="/comments/delete/{{ comment.id }}"><span class="glyphicon glyphicon-trash"></span></a>
             </div>
         {% endif %}
         </div>
@@ -64,7 +88,10 @@
             <input type="submit" name="submit" value="提交" class="btn btn-default"/>
         </form>
     {% else %}
+        <div class="comment-login">
         <p>登录才可以评论哦</p>
+        </div>
+
     {% endif %}
     </div>
 
