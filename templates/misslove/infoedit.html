@@ -51,7 +51,7 @@
         <div class="form-group">
             <label for="id_avatar">当前头像:</label>
              <img class="avatar-edit" src="{{ current_user.get_avatar }}"/>
-        {% ifnotequal current_user.get_avatar '/media/images/useravatar/default_avatar.jpg' %}
+        {% ifnotequal current_user.get_avatar '/static/misslove/img/default_avatar.jpg' %}
             <input id="avatar-clear_id" name="avatar-clear" type="checkbox" />
             <label for="avatar-clear_id">删除头像</label><br />
         {% endifnotequal %}
