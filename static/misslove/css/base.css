@@ -56,7 +56,8 @@ nav form {
 
 body{
     margin-top: 75px;
-    background-color: #DDDDDD;
+    background-color: #eeeeee;
+
 }
 
 .one-article{
@@ -108,6 +109,23 @@ body{
 
 .comment-login p{
     color: #dca7a7;
+}
+
+#article-detail-title{
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+#article-detail-type{
+    color:#666666;
+}
+
+#article-detail-img{
+   max-width: 100%;
+}
+
+#article-detail-edit-delete{
+    margin-top: 20px;
 }
 
 /**************基础页面(base.html)*********************/
@@ -335,14 +353,16 @@ body{
     margin-bottom: 10px;
 }
 
-#hp-container .col-md-3 div{
-    text-align: center;
+#hp-container .col-md-3 div {
+    text-align: left;
     border: 1px solid white;
     padding: 2px;
+    min-height: 305px;
 }
 
 #hp-container .col-md-3 div a {
-    font-size: 25px;    
+    font-size: 25px;
+
 }
 
 #hp-container .col-md-3 div a:hover {
@@ -370,51 +390,53 @@ filter: gray;
 }
 
 .div-hover-0 {
-    border:#35a5e5 1px solid;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border:#59AFFF 1px solid;
+    box-shadow: 0 0 5px rgba(89,175,255, 1);
+    -webkit-box-shadow: 0 0 5px rgba(89,175,255, 1);
+    -moz-box-shadow: 0 0 5px rgba(89,175,255, 1);
 }
 
 .div-hover-1 {
-    border:#35a5e5 1px solid;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border:#fc8e78 1px solid;
+    box-shadow: 0 0 5px rgba(252,142,120,1);
+    -webkit-box-shadow: 0 0 5px rgba(252,142,120,1);
+    -moz-box-shadow: 0 0 5px rgba(252,142,120,1);
 }
 
 .div-hover-2 {
-    border:#35a5e5 1px solid;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border:#FFBC09 1px solid;
+    box-shadow: 0 0 5px rgba(255,188,9,1);
+    -webkit-box-shadow: 0 0 5px rgba(255,188,9,1);
+    -moz-box-shadow: 0 0 5px rgba(255,188,9,1);
 }
 
 .div-hover-3 {
-    border:#35a5e5 1px solid;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border:#69EC64 1px solid;
+    box-shadow: 0 0 5px rgba(105,236,100,1);
+    -webkit-box-shadow: 0 0 5px rgba(105,236,100,1);
+    -moz-box-shadow: 0 0 5px rgba(105,236,100,1);
 }
 
 .p-hover-0 {
-    text-shadow: 0 0 5px rgba(255, 153, 0, 1);
-    color: #FF9900;
+    /*text-shadow: 0 0 5px rgba(255, 153, 0, 1);*/
+   /* color: #1E6CCC;*/
+    color: #59AFFF;
 }
 
 .p-hover-1 {
-    text-shadow: 0 0 5px rgba(255, 102, 102, 1);
-    color: #FF6666;
+   /* text-shadow: 0 0 5px rgba(255, 102, 102, 1);*/
+    /*color: #FB694A;*/
+    color: #fc8e78;
 }
 
 .p-hover-2 {
-    text-shadow: 0 0 5px rgba(0, 102, 204, 1);
-    color: #0066CC;
+    /*text-shadow: 0 0 5px rgba(0, 102, 204, 1);*/
+    color: #FFBC09;
 }
 
 .p-hover-3 {
-    text-shadow: 0 0 5px rgba(204, 51, 51, 1);
-    color: #CC3333;
+    /*text-shadow: 0 0 5px rgba(204, 51, 51, 1);*/
+    color: #69EC64;
 }
 
 
@@ -536,6 +558,13 @@ body a:hover {
     text-shadow: 0 0 1px white;
 }
 
+body p{
+    line-height: 30px;
+}
+
+.body-part p{
+    color: #666666;
+}
 .login-button{
     color: #FFFFFF;
     background-color:#F53F56;
@@ -546,4 +575,9 @@ body a:hover {
 /****************article-catalog.html********************/
 .article-meta{
         color: #959595;
+}
+
+.page-header small {
+    font-size: 16px;
+    font-style: inherit;
 }

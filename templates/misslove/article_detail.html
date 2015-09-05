@@ -7,8 +7,10 @@
     <div>
     <!--文章内容-->
         <div class="article-box">
-            <h2>{{ article.title }}</h2>
+               <div>
+                   <span id="article-detail-title">{{ article.title }}</span>
 
+                   </div>
 
                <!--
                <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
@@ -19,18 +21,19 @@
                 <img id="avatar_detail" src="{{ article.author.get_avatar }}" alt="{{ article_author }}" title="{{ article_author }}"/>
                 <a href="/accounts/info/{{ article.author.id }}">{{ article.author }}</a>
             </span> &bull;
-            <time class="post-date" datetime=" {{ article.created_time }}" title=" {{ article.created_time }}"> {{ article.created_time }}</time>
-        </p>
+            <time class="post-date" datetime=" {{ article.created_time }}" title=" {{ article.created_time }}"> {{ article.created_time }}</time> &nbsp;
+        <span id="article-detail-type">所属板块：<a href="/articles/catalog/{{ article.choose_type }}">{{ article.get_choose_type_display }}</a></span>
+            </p>
         </div>
 
             <div>
             {{ article.text | safe }}
             </div>
             {% if article.image %}
-                <img src="{{ article.image.url }}" alt="{{ article }}" title="{{ article }}"/>
+                <img id ="article-detail-img" src="{{ article.image.url }}" alt="{{ article }}" title="{{ article }}"/>
             {% endif %}
             {% if article.author.id == user.id %}
-                <div>
+                <div id="article-detail-edit-delete">
                 <a href="/articles/edit/{{ article.id }}" data-toggle="tooltip" data-placement="top" title="编辑文章">
                     <span class="glyphicon glyphicon-pencil"></span></a>
                 <a href="/articles/delete/{{ article.id }}" data-toggle="tooltip" data-placement="bottom" title="删除文章"><span class="glyphicon glyphicon-trash"></span></a>
