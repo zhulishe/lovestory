@@ -65,6 +65,7 @@ body{
     margin-top: 15px;
 }
 
+
 .body-part{
     width: 70%;
     margin-left: 15%;
@@ -203,7 +204,7 @@ body{
 /*************用户资料页面(user_info.html)****************/
 #tabs {
     border: 1px solid #cbcbcb;
-    background-color: #f2f6fb;
+    background-color: #DDDDDD;
     padding: 0;
     position:relative;
     margin-top:300px;
@@ -222,11 +223,11 @@ body{
     background: #FFFFff;
 }
 #tabs .menu0 li.hover {
-    background: #f2f6fb;
+    background: #DDDDDD;
 }
 #tabs .main {
     clear:both;
-    padding:8px;
+    padding-top: 15px;
 }
 #tabs #main0 div {
     display: none;
@@ -287,6 +288,19 @@ body{
     text-shadow: 2px 2px 5px #000;
     font-size: 25px;
     font-weight: bold;
+    color: #F53F56;
+}
+
+#userInfo-gender{
+    color: #F53F56;
+}
+
+#userInfo-email{
+    color: #F53F56;
+}
+
+#whats_up{
+    color: #F53F56;
 }
 
 #user-info-edit-link {

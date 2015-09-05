@@ -45,7 +45,7 @@ def new_article(request):
 
 def article_catalog(request, article_type):
 	template_name = 'misslove/article_catalog.html'
-	limit = 10
+	limit = 1
 	articles = Article.objects.filter(status=1).filter(choose_type=article_type).order_by('-created_time')
 	article_type = Article.article_type[int(article_type)-1][1]
 	paginator = Paginator(articles, limit)
