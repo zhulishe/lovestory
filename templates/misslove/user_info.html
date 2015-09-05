@@ -14,19 +14,19 @@
 <div class="row no-js">
 
     <div id="user-info-top">
-        <img src="{% static 'misslove/img/hp1.jpg'%}" id="user-info-bg">
+        <img src="{% static 'misslove/img/userInfo.jpg'%}" id="user-info-bg">
         <div id = "user-info-detail">
             <img src="{{ current_user.get_avatar }}" alt="{{ current_user.username }}"
                  title="{{ current_user.username }}" class="img-thumbnail img-circle avatar"/>
             <p id="user-info-username">{{ current_user.username }}</p>
-            <p>{{ current_user.whats_up }}</p>
-            <p><span class="glyphicon glyphicon-user"></span>&nbsp;<span>{{ current_user.get_gender_display }}</span>
-            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope"></span>&nbsp;<span>{{ current_user.email }}</span></p>
+            <p id="whats_up">{{ current_user.whats_up }}</p>
+            <p><span class="glyphicon glyphicon-user"></span>&nbsp;<span id="userInfo-gender">{{ current_user.get_gender_display }}</span>
+            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope"></span>&nbsp;<span id="userInfo-email">{{ current_user.email }}</span></p>
         </div>
         <div id = "user-info-edit-link">
             {% ifequal current_user.id user.id %}
-                <p><a href="/accounts/edit/{{ current_user.id }}">编辑资料</a></p>
-                <p><a href="/accounts/changepasswd/{{ current_user.id }}">修改密码</a></p>
+                <a href="/accounts/edit/{{ current_user.id }}" class="btn btn-default">编辑资料</a>
+              <a href="/accounts/changepasswd/{{ current_user.id }}" class="btn btn-default">修改密码</a>
             {% endifequal %}
         </div>
     </div>
