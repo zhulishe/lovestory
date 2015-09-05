@@ -62,4 +62,6 @@ target/
 
 .idea
 whoosh_index
+media/images/articleimg/*
+media/images/useravatar/*
 

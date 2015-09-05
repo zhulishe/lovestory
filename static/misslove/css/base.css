@@ -1,3 +1,44 @@
+/***********************全局主色调、风格设计*****************************/
+/****主色调：#F53F56 *****/
+.btn-default{
+    color: #FFFFFF;
+    background-color:#F53F56;
+    border: #F53F56;
+}
+
+.glyphicon{
+    color: #F53F56;
+}
+
+body a{
+    color: #F53F56;
+}
+
+body a:hover {
+    color: #ccc;
+    text-decoration: none;
+    text-shadow: 0 0 1px white;
+}
+
+body p{
+    line-height: 30px;
+}
+
+.body-part {
+    color: #666666;
+}
+.login-button{
+    color: #FFFFFF;
+    background-color:#F53F56;
+    border: #F53F56;
+}
+
+.errorlist {
+    color: red;
+}
+
+
+
 #avatar{
     width: 50px;
     height: 50px;
@@ -56,7 +97,8 @@ nav form {
 
 body{
     margin-top: 75px;
-    background-color: #DDDDDD;
+    background-color: #eeeeee;
+
 }
 
 .one-article{
@@ -110,6 +152,23 @@ body{
     color: #dca7a7;
 }
 
+#article-detail-title{
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+#article-detail-type{
+    color:#666666;
+}
+
+#article-detail-img{
+   max-width: 100%;
+}
+
+#article-detail-edit-delete{
+    margin-top: 20px;
+}
+
 /**************基础页面(base.html)*********************/
 .to-top {
     display: none;
@@ -154,8 +213,14 @@ body{
     color: white;
 }
 #main-content{
-    padding-bottom: 75px; /*重要！给footer预留的空间*/
+    padding-bottom: 85px; /*重要！给footer预留的空间*/
     min-height: 800px;
+}
+#footer p {
+    line-height: 1em;
+}
+#footer-container {
+    margin-top: 10px;
 }
 
 
@@ -335,12 +400,14 @@ body{
     margin-bottom: 10px;
 }
 
-#hp-container .col-md-3 div{
-    text-align: center;
+#hp-container .col-md-3 div {
+    text-align: left;
     border: 1px solid white;
     padding: 2px;
     cursor: pointer;
+    min-height: 366px;
 }
+
 
 #hp-container div img {
     display: block;
@@ -354,7 +421,10 @@ body{
 
 .misslove-pie-chart div {
     height: 400px;
+    margin-top: 25px;
 }
+
+
 
 .gray {
 -webkit-filter: grayscale(100%);
@@ -366,51 +436,53 @@ filter: gray;
 }
 
 .div-hover-0 {
-    border:#35a5e5 1px solid;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border:#59AFFF 1px solid;
+    box-shadow: 0 0 5px rgba(89,175,255, 1);
+    -webkit-box-shadow: 0 0 5px rgba(89,175,255, 1);
+    -moz-box-shadow: 0 0 5px rgba(89,175,255, 1);
 }
 
 .div-hover-1 {
-    border:#35a5e5 1px solid;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border:#fc8e78 1px solid;
+    box-shadow: 0 0 5px rgba(252,142,120,1);
+    -webkit-box-shadow: 0 0 5px rgba(252,142,120,1);
+    -moz-box-shadow: 0 0 5px rgba(252,142,120,1);
 }
 
 .div-hover-2 {
-    border:#35a5e5 1px solid;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border:#FFBC09 1px solid;
+    box-shadow: 0 0 5px rgba(255,188,9,1);
+    -webkit-box-shadow: 0 0 5px rgba(255,188,9,1);
+    -moz-box-shadow: 0 0 5px rgba(255,188,9,1);
 }
 
 .div-hover-3 {
-    border:#35a5e5 1px solid;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border:#69EC64 1px solid;
+    box-shadow: 0 0 5px rgba(105,236,100,1);
+    -webkit-box-shadow: 0 0 5px rgba(105,236,100,1);
+    -moz-box-shadow: 0 0 5px rgba(105,236,100,1);
 }
 
 .p-hover-0 {
-    text-shadow: 0 0 5px rgba(255, 153, 0, 1);
-    color: #FF9900;
+    /*text-shadow: 0 0 5px rgba(255, 153, 0, 1);*/
+   /* color: #1E6CCC;*/
+    color: #59AFFF;
 }
 
 .p-hover-1 {
-    text-shadow: 0 0 5px rgba(255, 102, 102, 1);
-    color: #FF6666;
+   /* text-shadow: 0 0 5px rgba(255, 102, 102, 1);*/
+    /*color: #FB694A;*/
+    color: #fc8e78;
 }
 
 .p-hover-2 {
-    text-shadow: 0 0 5px rgba(0, 102, 204, 1);
-    color: #0066CC;
+    /*text-shadow: 0 0 5px rgba(0, 102, 204, 1);*/
+    color: #FFBC09;
 }
 
 .p-hover-3 {
-    text-shadow: 0 0 5px rgba(204, 51, 51, 1);
-    color: #CC3333;
+    /*text-shadow: 0 0 5px rgba(204, 51, 51, 1);*/
+    color: #69EC64;
 }
 
 
@@ -511,42 +583,12 @@ filter: gray;
 }
 
 
-/***********************全局主色调、风格设计*****************************/
-/****主色调：#F53F56 *****/
-.btn-default{
-    color: #FFFFFF;
-    background-color:#F53F56;
-    border: #F53F56;
-}
-
-.glyphicon{
-    color: #F53F56;
-}
-
-body a{
-    color: #F53F56;
-}
-
-body a:hover {
-    color: #ccc;
-    text-decoration: none;
-    text-shadow: 0 0 1px white;
-}
-
-.login-button{
-    color: #FFFFFF;
-    background-color:#F53F56;
-    border: #F53F56;
-}
-
-.errorlist {
-    color: red;
-}
 
 /****************article-catalog.html********************/
 .article-meta{
         color: #959595;
 }
+
 
 .pagination>li>a,
 .pagination>li>span {
@@ -566,3 +608,9 @@ body a:hover {
     background-color: #F53F56;
     border-color: #F53F56;
 }
+
+.page-header small {
+    font-size: 16px;
+    font-style: inherit;
+}
+

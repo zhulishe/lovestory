@@ -67,7 +67,7 @@ class NewUser(AbstractUser):
 		if self.avatar and hasattr(self.avatar, 'url'):
 			return self.avatar.url
 		else:
-			return '/media/images/useravatar/default_avatar.jpg'
+			return '/static/misslove/img/default_avatar.jpg'
 
 	def __unicode__(self):
 		return self.username
