@@ -17,16 +17,17 @@ class NewArticleForm(forms.ModelForm):
 class UserForm(UserCreationForm):
 	class Meta():
 		model = get_user_model()
-		fields = ('username', 'email',)
+		fields = ('username', 'email', 'status')
 		lables = {
 			'username': u'用户名',
 			'email': u'邮箱',
+			'status': u'恋爱状态',
 		}
 
 class InfoEdit(forms.ModelForm):
 	class Meta():
 		model = get_user_model()
-		fields = ('username','email', 'gender', 'whats_up', 'avatar',)
+		fields = ('username','email', 'gender', 'whats_up', 'avatar','status')
 
 
 class CommentAdd(forms.ModelForm):

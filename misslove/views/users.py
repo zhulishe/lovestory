@@ -51,11 +51,13 @@ def user_signup(request):
 		if uf.is_valid():
 			user_name = request.POST.get('username')
 			password = uf.clean_password2()
+			love_status = request.POST.get('status')
 			uf.save()
 			user = authenticate(username = user_name, password = password)
 			if user.is_active:
+				user.status = love_status
 				login(request,user)
-				messages.add_message(u'注册成功并登录')
+				messages.success(request,u'注册成功并登录')
 			return redirect('homepage')
 	else:
 		uf = UserForm

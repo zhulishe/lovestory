@@ -20,8 +20,11 @@
                  title="{{ current_user.username }}" class="img-thumbnail img-circle avatar"/>
             <p id="user-info-username">{{ current_user.username }}</p>
             <p>{{ current_user.whats_up }}</p>
-            <p><span class="glyphicon glyphicon-user"></span>&nbsp;<span>{{ current_user.get_gender_display }}</span>
-            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope"></span>&nbsp;<span>{{ current_user.email }}</span></p>
+            <p>
+                <span class="glyphicon glyphicon-heart"></span>&nbsp;<span>{{ current_user.get_status_display }}</span>
+                &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;<span>{{ current_user.get_gender_display }}</span>
+                &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope"></span>&nbsp;<span>{{ current_user.email }}</span>
+            </p>
         </div>
         <div id = "user-info-edit-link">
             {% ifequal current_user.id user.id %}

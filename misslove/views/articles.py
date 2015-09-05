@@ -12,8 +12,17 @@ from django.contrib import messages
 # Create your views here.
 def homepage(request):
 	template_name = 'misslove/homepage.html'
-	return render_to_response(template_name,
-							  context_instance=RequestContext(request))
+
+	article_total = float(Article.objects.filter(status=1).count())
+	article_data = []
+	user_total = float(NewUser.objects.filter(is_active=True).count())
+	user_data = []
+	for i in range(1,5):
+		article_data.append(round(float(Article.objects.filter(status=1).filter(choose_type=i).count())/article_total, 1))
+		user_data.append(round(float(NewUser.objects.filter(is_active=True).filter(status=i).count())/user_total, 1))
+
+	return render(request, template_name,
+				  {"article_data": article_data, "user_data": user_data,})
 
 
 @login_required
@@ -28,7 +37,7 @@ def new_article(request):
 			article.author = request.user
 			article.save()
 			messages.success(request, u'发布文章成功')
-			return redirect('homepage')
+			return redirect('article_detail', article_id=article.id)
 	else:
 		form = NewArticleForm()
 	return render(request,template_name, {'form':form})

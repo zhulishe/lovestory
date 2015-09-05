@@ -13,12 +13,30 @@ $(document).ready(function() {
 
     tinymce.init({
         selector: "textarea",
-        language: "zh_CN"
+        language: "zh_CN",
+        toolbar: "insertfile undo redo | styleselect | fontsizeselect bold italic | alignleft aligncenter" +
+            " alignright alignjustify | bullist numlist outdent indent ",
+
     });
 
 
     /*************首页(homepage.html)*****************/
     $(".carousel").carousel({interval: 3000}).carousel('cycle');
+    $("#hp-container > div > div").hover(function(){
+        $(this).addClass(function(){
+            return 'div-hover-'+$(this).parent().index()
+        }).find("img").removeClass("gray")
+            .parent().find("p").addClass(function(){
+                return 'p-hover-'+$(this).parent().parent().index()
+            });},
+        function(){
+            $(this).removeClass(function(){
+                return 'div-hover-'+$(this).parent().index()
+            }).find("img").addClass("gray")
+                .parent().find("p").removeClass(function(){
+                    return 'p-hover-'+$(this).parent().parent().index()
+                });
+        });
 
 
     /*************新建文章(new_article.html)*******************/
@@ -31,7 +49,6 @@ $(document).ready(function() {
 
     /**************修改评论(edit_comment.html)********************/
     $(".comment-edit label").text("评论内容：");
-
 
 
 

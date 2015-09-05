@@ -78,28 +78,28 @@
     <div class="row" id="hp-container">
         <div class="col-md-3">
             <div>
-            <img src="{%static 'misslove/img/block.png' %}"  />
+            <img src="{%static 'misslove/img/block.png' %}"  class="gray"/>
             <a href="/articles/catalog/1">失恋</a>
                 <p>LIFE IF SHORT, PLAY MORE</p>
             </div>
         </div>
         <div class="col-md-3">
             <div>
-            <img src="{%static 'misslove/img/block.png' %}" />
+            <img src="{%static 'misslove/img/block.png' %}" class="gray"/>
             <a href="/articles/catalog/2">暗恋</a>
                 <p>LIFE IF SHORT, PLAY MORE</p>
             </div>
         </div>
         <div class="col-md-3">
             <div>
-            <img src="{%static 'misslove/img/block.png' %}"  />
+            <img src="{%static 'misslove/img/block.png' %}"  class="gray"/>
             <a href="/articles/catalog/3">异地恋</a>
                 <p>LIFE IF SHORT, PLAY MORE</p>
             </div>
         </div>
         <div class="col-md-3">
             <div>
-            <img src="{%static 'misslove/img/block.png' %}" />
+            <img src="{%static 'misslove/img/block.png' %}" class="gray"/>
             <a href="/articles/catalog/4">爱恋</a>
                 <p>LIFE IF SHORT, PLAY MORE</p>
             </div>
@@ -109,14 +109,110 @@
     <hr/>
 
     <div>
-    左边显示板块百分比,右边显示用户状态百分比
+        MISSLOVE(艺术字)
     </div>
 
     <hr/>
 
-    <div>
-    其他的信息123
+    <div class="row misslove-pie-chart">
+        <div id="article-type-pie" class="col-md-6"></div>
+        <div id="user-type-pie" class="col-md-6"></div>
     </div>
 
 
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript" src="{% static 'misslove/js/highcharts.js' %}"></script>
+    <script type="text/javascript">
+$(function () {
+    $('#article-type-pie').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '各板块类型占有比例'
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '板块占有',
+            data: [
+                ['失恋',   {{ article_data.0 }}],
+                ['暗恋',   {{ article_data.1 }}],
+                {
+                    name: '异地恋',
+                    y: {{ article_data.2 }},
+                    sliced: true,
+                    selected: true
+                },
+                ['爱恋',    {{ article_data.3 }}]
+            ]
+        }]
+    });
+
+    $('#user-type-pie').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '各用户类型占有比例'
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '用户占有',
+            data: [
+                {
+                    name: '失恋',
+                    y: {{ user_data.0 }},
+                    sliced: true,
+                    selected: true
+                },
+                ['暗恋',    {{ user_data.1 }}],
+                ['异地恋',     {{ user_data.2 }}],
+                ['爱恋',   {{ user_data.3 }}]
+            ]
+        }]
+    });
+});
+    </script>
 {% endblock %}
