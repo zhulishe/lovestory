@@ -53,7 +53,8 @@
                 <li class="list-group-item">
                 <a href="/articles/detail/{{ user_article.id }}">{{ user_article }}</a>&nbsp;&nbsp;
                     {% ifequal current_user.id user.id %}
-                    <a href="/articles/delete/{{ user_article.id }}" class="badge"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a href="/articles/delete/{{ user_article.id }}" class="badge" data-toggle="tooltip" data-placement="left" title="删除文章">
+                        <span class="glyphicon glyphicon-remove"></span></a>
                     {% endifequal %}
                 </li>
             {% endfor %}
@@ -71,7 +72,8 @@
                    <a href="/articles/detail/{{ user_comment.article.id }}/#comment_{{ user_comment.id }}">
                        {{ user_comment.article.title }}</a>&nbsp;&nbsp;
                     {% if current_user.id == user.id or user.id == comment.article.author.id %}
-                    <a href="/comments/delete/{{ user_comment.id }}" class="badge"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a href="/comments/delete/{{ user_comment.id }}" class="badge">
+                        <span class="glyphicon glyphicon-remove"></span></a>
                     {% endif %}
                 </li>
             {% endfor %}

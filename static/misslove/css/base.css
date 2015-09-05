@@ -98,19 +98,30 @@ body{
     margin-top: 30px;
 }
 
+.comment-login{
+    background-color:#FFFFFF;
+    margin-top: 15px;
+    text-align: center;
+    font-style: oblique;
+}
+
+.comment-login p{
+    color: #dca7a7;
+}
+
 /**************基础页面(base.html)*********************/
 .to-top {
     display: none;
-    padding: 10px 25px;
+    /* padding: 10px 25px; */
     color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #f50;
+    /* font-size: 18px; */
+    /* font-weight: bold; */
+    background-color: #F53F56;
 }
 
 .to-top:hover{
     text-decoration: none;
-    color: white;
+    /* color: white; */
 }
 
 
@@ -151,6 +162,7 @@ body{
 .signup-page {
     margin: 100px auto 0 auto;
     color: white;
+    text-shadow: 0 0 15px darkred;
 }
 
 .signup-page input {
@@ -160,9 +172,9 @@ body{
 .signup-page h1 {
     font-size: 30px;
     font-weight: 700;
-    text-shadow: 0 1px 4px rgba(0,0,0,.2);
     text-align: center;
     margin-bottom: 25px;
+    text-shadow: 0 0 15px darkred;
 }
 
 .signup-page button {
@@ -389,6 +401,14 @@ filter: gray;
 
 
 
+.item p{
+    font-style: normal;
+    font-size: larger;
+    text-shadow: 0 0 15px #5D5D0F;
+}
+
+
+
 /*********************编辑评论页面（edit_comment.html)***********************/
 .comment-edit{
     margin-top: 50px;
@@ -471,6 +491,41 @@ filter: gray;
 
 .carousel-caption{
     margin-right: 50%;
-    margin-bottom: 8%;
+    margin-bottom: 5%;
     width:25%;
+}
+
+
+/***********************全局主色调、风格设计*****************************/
+/****主色调：#F53F56 *****/
+.btn-default{
+    color: #FFFFFF;
+    background-color:#F53F56;
+    border: #F53F56;
+}
+
+.glyphicon{
+    color: #F53F56;
+}
+
+body a{
+    color: #F53F56;
+}
+
+body a:hover {
+    color: #ccc;
+    text-decoration: none;
+    text-shadow: 0 0 1px white;
+}
+
+.login-button{
+    color: #FFFFFF;
+    background-color:#F53F56;
+    border: #F53F56;
+}
+
+
+/****************article-catalog.html********************/
+.article-meta{
+        color: #959595;
 }

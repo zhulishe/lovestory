@@ -9,7 +9,7 @@ $(document).ready(function() {
         bottom: 70,
         offset: 300
     });
-    $("#messages").delay(2000).hide("slow")
+    $("#messages").delay(2000).hide("slow");
 
     tinymce.init({
         selector: "textarea",
@@ -18,6 +18,10 @@ $(document).ready(function() {
             " alignright alignjustify | bullist numlist outdent indent ",
 
     });
+
+     $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        });
 
 
     /*************首页(homepage.html)*****************/
