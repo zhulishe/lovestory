@@ -36,7 +36,9 @@
                     <time class="post-date" datetime="{{ article.created_time }}" title=" {{ article.created_time }}">{{ article.created_time }}</time>
                 </div>
 
-                <div>{{ article.text | safe | truncatechars:200 }}</div>
+                <div>
+                    {{ article.text | safe | truncatechars_html:40 }}
+                </div>
 
                 <a href="/articles/detail/{{ article.id }}" class="btn btn-default">阅读全文</a>
             </div>

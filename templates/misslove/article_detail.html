@@ -27,7 +27,9 @@
         </div>
 
             <div>
-            {{ article.text | safe }}
+                {% autoescape off %}
+                    {{ article.text  }}
+                {% endautoescape %}
             </div>
             {% if article.image %}
                 <img id ="article-detail-img" src="{{ article.image.url }}" alt="{{ article }}" title="{{ article }}"/>
