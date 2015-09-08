@@ -1,1 +1,0 @@
-web: gunicorn lovestory.wsgi --log-file -
