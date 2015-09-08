@@ -1,4 +1,4 @@
-# MissLove 恋爱博物馆
+# MissLove 爱情博物馆
 
 ***
 ## 项目简介
@@ -29,6 +29,6 @@ MissLove的灵感来源是克罗地亚的失恋博物馆，一个陈列失恋物
 
 ## 开发技术版本
 
-**Python:2.7
-django：1.84
+**Python:2.7   
+django：1.84   
 bootstrap:3.3**
