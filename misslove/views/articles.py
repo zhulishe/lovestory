@@ -17,6 +17,10 @@ def homepage(request):
 	article_data = []
 	user_total = float(NewUser.objects.filter(is_active=True).count())
 	user_data = []
+	if article_data == 0:
+		article_data = 1
+	if user_total == 0:
+		user_total = 1
 	for i in range(1,5):
 		article_data.append(round(float(Article.objects.filter(status=1).filter(choose_type=i).count())/article_total, 1))
 		user_data.append(round(float(NewUser.objects.filter(is_active=True).filter(status=i).count())/user_total, 1))

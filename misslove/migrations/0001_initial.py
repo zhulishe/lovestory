@@ -2,9 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import django.utils.timezone
-import django.core.validators
 import django.contrib.auth.models
+import django.utils.timezone
+from django.conf import settings
+import django.core.validators
 
 
 class Migration(migrations.Migration):
@@ -43,5 +44,37 @@ class Migration(migrations.Migration):
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
+        ),
+        migrations.CreateModel(
+            name='Article',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('title', models.CharField(max_length=200, verbose_name='\u6587\u7ae0\u6807\u9898')),
+                ('text', models.TextField(verbose_name='\u6587\u7ae0\u5185\u5bb9')),
+                ('choose_type', models.IntegerField(default=1, verbose_name='\u677f\u5757\u9009\u62e9', choices=[(1, '\u5931\u604b'), (2, '\u6697\u604b'), (3, '\u5f02\u5730\u604b'), (4, '\u7231\u604b')])),
+                ('created_time', models.DateTimeField(default=django.utils.timezone.now, verbose_name='\u53d1\u5e03\u65f6\u95f4', editable=False)),
+                ('status', models.IntegerField(default=1, verbose_name='\u72b6\u6001')),
+                ('image', models.ImageField(upload_to=b'images/articleimg', verbose_name='\u6587\u7ae0\u56fe\u7247', blank=True)),
+                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'verbose_name': '\u6587\u7ae0',
+                'verbose_name_plural': '\u6587\u7ae0',
+            },
+        ),
+        migrations.CreateModel(
+            name='Comment',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('content', models.TextField()),
+                ('comment_time', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
+                ('status', models.IntegerField(default=1)),
+                ('article', models.ForeignKey(to='misslove.Article')),
+                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'verbose_name': '\u8bc4\u8bba',
+                'verbose_name_plural': '\u8bc4\u8bba',
+            },
         ),
     ]
