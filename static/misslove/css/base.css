@@ -202,6 +202,9 @@ body{
     height: auto;          /* 保证页面能撑开浏览器高度时显示正常*/
     min-height: 100%  /* IE6不支持，IE6要单独配置*/
 }
+#wrapper nav {
+    z-index: 10000;
+}
 #footer{
     position: absolute;
     bottom: 0;/* 关键 */

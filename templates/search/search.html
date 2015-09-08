@@ -36,7 +36,7 @@
                     <a href="{% url 'misslove.views.articles.article_detail' article_id=result.object.id %}">
                         {{ result.object.title }}</a>
                 </p>
-                <p>{{ result.object.text | safe | truncatechars:40 }}</p>
+                <p>{{ result.object.text | safe | truncatechars_html:40 }}</p>
             </td>
             </tr>
 
