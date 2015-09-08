@@ -29,6 +29,7 @@ MissLove的灵感来源是克罗地亚的失恋博物馆，一个陈列失恋物
 
 ## 开发技术版本
 
-**Python:2.7   
-django：1.84   
-bootstrap:3.3**
+**Python:2.7.6   
+django：1.8.4   
+bootstrap:3.3    
+使用了MySQL数据库**
